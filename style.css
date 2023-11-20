@@ -98,10 +98,13 @@ span::before {
 }
 
 @keyframes change-text {
-  30% {
+  25% {
     content: "Digital Marketing Specialist";
   }
-  70% {
+  50% {
+    content: "Brand Designer";
+  }
+  75% {
     content: "Content Developer";
   }
 }
