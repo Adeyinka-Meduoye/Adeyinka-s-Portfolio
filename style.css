@@ -89,7 +89,7 @@ body a:hover {
 }
 
 span::before {
-  content: "Front-End Developer";
+  content: "Front-End Engineer";
   color: lightblue;
   font-size: 20px;
   animation-name: change-text;
