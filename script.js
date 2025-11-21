@@ -1,49 +1,74 @@
-// EmailJS Initialization
-emailjs.init("x2jZLRL7ng_aEHqG9");
+// ===== Dark/Light Mode Toggle =====
+const toggleButton = document.createElement("button");
+toggleButton.innerText = "🌙 / ☀️";
+toggleButton.id = "mode-toggle";
+toggleButton.style.position = "fixed";
+toggleButton.style.bottom = "20px";
+toggleButton.style.right = "20px";
+toggleButton.style.zIndex = "100";
+toggleButton.style.padding = "10px 15px";
+toggleButton.style.borderRadius = "5px";
+toggleButton.style.border = "none";
+toggleButton.style.cursor = "pointer";
+document.body.appendChild(toggleButton);
 
-let form = document.getElementById("form");
+toggleButton.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+});
+
+// ===== EmailJS Form Submission =====
+const form = document.getElementById("form");
+const sendButton = document.getElementById("send");
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  emailjs.sendForm('service_fordfmq', 'template_s2mp6xv', this)
+
+  sendButton.disabled = true;
+  sendButton.innerText = "Sending...";
+
+  const formData = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  };
+
+  if (!formData.name || !formData.email || !formData.message) {
+    alert("Please fill in all fields.");
+    sendButton.disabled = false;
+    sendButton.innerText = "Send";
+    return;
+  }
+
+  emailjs.send("service_fordfmq", "template_s2mp6xv", formData, "x2jZLRL7ng_aEHqG9")
     .then(() => {
       alert("Your message was sent successfully!");
       form.reset();
-    }, (err) => {
-      console.error(err);
+      sendButton.disabled = false;
+      sendButton.innerText = "Send";
+    })
+    .catch(() => {
       alert("Oops! Something went wrong. Please try again.");
+      sendButton.disabled = false;
+      sendButton.innerText = "Send";
     });
 });
 
-// Dark/Light Mode Toggle with Persistence
-const darkBtn = document.getElementById("dark-mode-btn");
-const lightBtn = document.getElementById("light-mode-btn");
-
-const enableLightMode = () => {
-  document.body.classList.add("light-mode");
-  localStorage.setItem("theme", "light");
-};
-
-const enableDarkMode = () => {
-  document.body.classList.remove("light-mode");
-  localStorage.setItem("theme", "dark");
-};
-
-// Apply saved theme on load
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light") {
-  enableLightMode();
-} else {
-  enableDarkMode();
+// ===== Home Section: Mobile Fix =====
+const homeDiv = document.querySelector(".home-div");
+if (window.innerWidth <= 768) {
+  const homePassport = document.querySelector(".home-passport");
+  const homeDescription = document.querySelector(".home-description");
+  homeDiv.innerHTML = "";
+  homeDiv.appendChild(homePassport);
+  homeDiv.appendChild(homeDescription);
 }
 
-darkBtn.addEventListener("click", enableDarkMode);
-lightBtn.addEventListener("click", enableLightMode);
+// ===== Optional: Adjust animated role text if needed =====
+const roles = ["Front-End Engineer", "Digital Marketing Specialist", "Full Stack Brand Specialist", "Mobile App Developer"];
+let roleIndex = 0;
+const roleSpan = document.querySelector(".home-profile span");
 
-// Home Text Animation
-const span = document.querySelector(".home-profile span");
-const texts = ["Digital Marketing Specialist", "Mobile App Developer", "Front-End Engineer", "Full Stack Brand Specialist"];
-let index = 0;
-setInterval(() => { 
-  span.textContent = texts[index]; 
-  index = (index + 1) % texts.length; 
-}, 2000);
+setInterval(() => {
+  roleSpan.textContent = roles[roleIndex];
+  roleIndex = (roleIndex + 1) % roles.length;
+}, 5000);
