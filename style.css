@@ -1,4 +1,4 @@
-/* Global */
+/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -10,18 +10,16 @@ html {
 }
 
 body {
-  background-color: #252525;
-  color: #dcdcdc;
   font-family: "Poppins", sans-serif;
+  background-color: #252525;
+  color: #bdbdbd;
+  transition: background-color 0.4s, color 0.4s;
 }
 
-/* Links */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-a:hover {
-  color: #ffffff;
+/* Light Mode */
+body.light-mode {
+  background-color: #f5f5f5;
+  color: #1c1c1c;
 }
 
 /* Header */
@@ -31,14 +29,68 @@ a:hover {
   width: 100%;
   z-index: 50;
   background-color: #252525;
+  color: #bdbdbd;
   backdrop-filter: blur(10px);
+  transition: background-color 0.4s, color 0.4s;
+}
+
+body.light-mode .header-section {
+  background-color: #ffffffcc;
+  color: #1c1c1c;
+}
+
+.navbar-nav .nav-link {
+  color: #bdbdbd;
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+body.light-mode .navbar-nav .nav-link {
+  color: #1c1c1c;
+}
+
+body.light-mode .navbar-nav .nav-link:hover {
+  color: #007bff;
+}
+
+/* Section Headings (<Home>, <About>, etc.) */
+.open-home, .close-home,
+.open-about, .close-about,
+.open-service, .close-service,
+.open-portfolio, .close-portfolio,
+.open-contact, .close-contact {
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  color: #676565;
+  margin: 20px 0;
+  transition: color 0.3s;
+}
+
+body.light-mode .open-home, 
+body.light-mode .close-home,
+body.light-mode .open-about, 
+body.light-mode .close-about,
+body.light-mode .open-service, 
+body.light-mode .close-service,
+body.light-mode .open-portfolio, 
+body.light-mode .close-portfolio,
+body.light-mode .open-contact, 
+body.light-mode .close-contact {
+  color: #1c1c1c;
 }
 
 /* Home Section */
 .home-section {
-  background-image: url("image/background.png");
+  background-image: url(image/background.png);
   background-size: cover;
   padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
@@ -48,18 +100,15 @@ a:hover {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 50px 20px;
-}
-
-.home-passport {
-  width: 250px;
-  margin: 10px;
+  gap: 40px;
+  margin: 50px 0;
 }
 
 .home-passport img {
-  width: 100%;
   border-radius: 50%;
-  transition: transform 0.25s ease-in-out;
+  width: 300px;
+  height: 300px;
+  transition: transform 0.3s;
 }
 
 .home-passport:hover {
@@ -67,148 +116,144 @@ a:hover {
 }
 
 .home-description {
-  max-width: 500px;
-  margin: 10px;
-  text-align: left;
-  color: #f0f0f0; /* Light color for dark mode readability */
+  max-width: 450px;
+  color: #ffffff;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+body.light-mode .home-description {
+  color: #1c1c1c;
 }
 
 .home-name {
-  font-size: 2em;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 8px #000000;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 8px #676565;
 }
 
-.home-profile span::before {
-  content: "Front-End Engineer";
+body.light-mode .home-name {
+  text-shadow: none;
+}
+
+.home-profile span {
   color: lightblue;
-  font-size: 18px;
-  animation: change-text 5s infinite;
-}
-
-@keyframes change-text {
-  25% { content: "Digital Marketing Specialist"; }
-  50% { content: "Full Stack Brand Specialist"; }
-  75% { content: "Mobile App Developer"; }
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .home-button {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #252525;
+  margin-top: 20px;
+  font-size: 1rem;
   color: lightgoldenrodyellow;
+  background-color: #252525;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.4s;
 }
 
 .home-button:hover {
   color: lightblue;
 }
 
+body.light-mode .home-button {
+  background-color: #eaeaea;
+  color: #1c1c1c;
+}
+
+body.light-mode .home-button:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
 /* About Section */
-.about-section {
-  padding: 50px 20px;
-}
-
 .about-div {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.about-description,
-.about-skills {
-  max-width: 450px;
-  margin: 10px;
-  color: #bdbdbd;
-}
-
-.about-skills ul {
-  list-style-type: disc;
-  padding-left: 20px;
-}
-
-/* Service Section */
-.service-section {
-  padding: 50px 20px;
-  text-align: center;
-}
-
-.service-div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.service-item {
-  width: 200px;
-  margin: 20px;
-  color: #bdbdbd;
-  transition: transform 0.25s ease-in-out;
-}
-
-.service-item svg {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 10px;
-  fill: lightblue;
-}
-
-.service-item:hover {
-  transform: scale(1.05);
-}
-
-.service-item h3 {
-  margin-top: 5px;
-  font-size: 18px;
-}
-
-/* Portfolio Section */
-.portfolio-section {
-  padding: 50px 20px;
-  text-align: center;
-}
-
-.portfolio-first-div,
-.portfolio-second-div {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 50px 0;
+  text-align: left;
 }
 
-.portfolio-item {
-  width: 250px;
-  margin: 20px;
+.about-description, .about-skills {
+  max-width: 400px;
   color: #bdbdbd;
+  transition: color 0.3s;
+}
+
+body.light-mode .about-description, 
+body.light-mode .about-skills {
+  color: #1c1c1c;
+}
+
+.about-skills ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+/* Services Section */
+.service-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 50px 0;
   text-align: center;
 }
 
-.portfolio-item img {
-  width: 100%;
-  border-radius: 10px;
-  transition: transform 0.25s ease-in-out;
+.service-webdesign, .service-digital, .service-content, .service-mobile, .service-brand {
+  max-width: 250px;
+  transition: transform 0.3s, color 0.3s;
+  color: #bdbdbd;
 }
 
-.portfolio-item:hover img {
+.service-webdesign:hover, .service-digital:hover, .service-content:hover, .service-mobile:hover, .service-brand:hover {
   transform: scale(1.05);
 }
 
+body.light-mode .service-webdesign, 
+body.light-mode .service-digital, 
+body.light-mode .service-content, 
+body.light-mode .service-mobile, 
+body.light-mode .service-brand {
+  color: #1c1c1c;
+}
+
+/* Portfolio Section */
+.portfolio-first-div, .portfolio-second-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding-bottom: 50px;
+}
+
+.portfolio-first-div div, .portfolio-second-div div {
+  max-width: 400px;
+  color: #bdbdbd;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.portfolio-first-div div:hover, .portfolio-second-div div:hover {
+  transform: scale(1.05);
+}
+
+body.light-mode .portfolio-first-div div, body.light-mode .portfolio-second-div div {
+  color: #1c1c1c;
+}
+
 .main-button {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 15px;
-  font-size: 15px;
-  color: lightblue;
-  background-color: #252525;
+  font-size: 1rem;
+  padding: 10px 20px;
   border: 1px solid #676565;
-  border-radius: 5px;
+  background-color: #252525;
+  color: lightblue;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: 0.4s;
 }
 
 .main-button:hover {
@@ -216,86 +261,87 @@ a:hover {
   background-color: darkblue;
 }
 
-.view-more {
-  margin-top: 20px;
+body.light-mode .main-button {
+  background-color: #eaeaea;
+  color: #1c1c1c;
+}
+
+body.light-mode .main-button:hover {
+  background-color: #007bff;
+  color: #ffffff;
 }
 
 /* Contact Section */
-.contact-section {
-  padding: 50px 20px;
-}
-
 .contact-div {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 40px;
+  padding: 50px 0;
 }
 
-.contact-first-div,
-.contact-second-div {
+.contact-first-div, .contact-second-div {
   max-width: 400px;
-  margin: 10px;
-  color: #bdbdbd;
   text-align: center;
+  color: #bdbdbd;
+  transition: color 0.3s;
 }
 
-#form fieldset {
-  border: 1px solid #676565;
+body.light-mode .contact-first-div, body.light-mode .contact-second-div {
+  color: #1c1c1c;
+}
+
+button {
+  font-size: 1rem;
+  padding: 10px 20px;
   border-radius: 5px;
-  padding: 20px;
-}
-
-#form input, #form textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #676565;
-  background-color: #252525;
-  color: #f0f0f0;
-}
-
-#form button {
-  padding: 8px 15px;
-  font-size: 15px;
+  border: none;
   background-color: #252525;
   color: lightgoldenrodyellow;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.4s;
 }
 
-#form button:hover {
+button:hover {
   color: lightblue;
+}
+
+body.light-mode button {
+  background-color: #eaeaea;
+  color: #1c1c1c;
+}
+
+body.light-mode button:hover {
+  color: #007bff;
 }
 
 /* Footer */
 footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 20px 0;
   color: #bdbdbd;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+body.light-mode footer {
+  color: #1c1c1c;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
   .home-div {
     flex-direction: column;
-    align-items: center;
   }
 
   .home-passport {
-    order: -1; /* Picture first on mobile */
+    order: -1;
+    margin-bottom: 20px;
   }
 
-  .about-div {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .service-div, .portfolio-first-div, .portfolio-second-div {
-    flex-direction: column;
-    align-items: center;
+  .home-description {
+    text-align: center;
   }
 }
