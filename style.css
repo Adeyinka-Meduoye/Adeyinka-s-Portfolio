@@ -1,34 +1,38 @@
 /* ========================================================= */
-/* 1. Design Tokens (CSS Variables) and Theme Definitions */
+/* 1. Design Tokens (CSS Variables) */
 /* ========================================================= */
 
 :root {
-  /* Common variables */
-  --font-family-main: "Poppins", sans-serif;
-  --transition-fast: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Default: Dark Theme */
+  --color-dark-bg: #252525;
+  --color-light-bg: #f8f9fa; /* Bootstrap light gray */
+  --color-text-dark: #212529; /* Bootstrap dark gray */
   
-  /* Dark Theme Variables (Default) */
-  --color-dark-bg: #252525;         /* Main Background */
-  --color-text-primary: #bdbdbd;    /* Primary Text Color (Light Gray) */
+  --color-bg: var(--color-dark-bg);
+  --color-text: #bdbdbd;            /* Primary Text Color (Light Gray) */
   --color-text-secondary: #676565;  /* Secondary Text Color (Darker Gray) */
-  --color-accent-blue: lightblue;   /* Primary Accent Color */
-  --color-accent-yellow: lightgoldenrodyellow; /* Secondary Accent Color */
-  --color-dark-blue-hover: #004c99; /* Button Hover Background */
-  --color-card-bg: #333333;         /* Card Background (Slightly lighter than main BG) */
-  --color-section-divider: var(--color-text-secondary);
+  --color-heading: #ffffff;
+  
+  --color-accent-blue: #007bff;   /* Primary Accent Color (Bootstrap Blue) */
+  --color-accent-yellow: #ffc107; /* Secondary Accent Color (Bootstrap Yellow) */
+  --color-dark-blue-hover: #0056b3; /* Button Hover Background */
+  
+  /* Typography */
+  --font-family-main: "Poppins", sans-serif;
+  
+  /* Transitions */
+  --transition-fast: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Light Theme Overrides */
-.light-theme {
-  --color-dark-bg: #f5f5f5;
-  --color-text-primary: #444444;
-  --color-text-secondary: #888888;
-  --color-accent-blue: #007bff; /* Brighter primary accent */
-  --color-accent-yellow: #ffc107; /* Standard yellow accent */
-  --color-dark-blue-hover: #0056b3;
-  --color-card-bg: #ffffff;
-  --color-section-divider: #e0e0e0;
+/* Light Theme Overrides (for the Theme Toggle) */
+html[data-theme="light"] {
+  --color-bg: var(--color-light-bg);
+  --color-text: var(--color-text-dark);
+  --color-text-secondary: #6c757d;
+  --color-heading: var(--color-text-dark);
+  --color-dark-blue-hover: #0069d9;
 }
+
 
 /* ========================================================= */
 /* 2. Global Resets and Base Styles */
@@ -45,8 +49,8 @@ html {
 }
 
 body {
-  background-color: var(--color-dark-bg);
-  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-family-main);
   line-height: 1.6;
   transition: background-color 0.5s, color 0.5s; /* Smooth theme transition */
@@ -54,7 +58,7 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--color-text-primary);
+  color: var(--color-text);
   transition: color 0.3s ease;
 }
 
@@ -68,34 +72,26 @@ ul {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: var(--color-text-primary); /* Headings should use primary text color */
+    color: var(--color-heading);
 }
 
-/* Separators - Border between sections */
 section + section {
-    border-top: 1px solid var(--color-section-divider);
+    border-top: 1px solid var(--color-text-secondary);
 }
 
 /* ========================================================= */
 /* 3. Reusable Components & Utilities */
 /* ========================================================= */
 
-/* Generic Card Hover Effect (for Portfolio and Services) */
 .hover-card {
-  transition: transform var(--transition-fast) 0s, box-shadow var(--transition-fast) 0s;
-  background-color: var(--color-card-bg); /* Use card background variable */
-  padding: 20px;
-  border-radius: 8px;
+  transition: transform var(--transition-fast) 0s;
+  margin: 10px;
 }
 
 .hover-card:hover {
   transform: scale(1.03);
-  /* Adjust shadow based on theme */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
-}
-
-.light-theme .hover-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  /* Adjusted box shadow to work better in both themes */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
 }
 
 /* Bootstrap Button Overrides */
@@ -107,10 +103,11 @@ section + section {
     transition: all 0.4s ease;
 }
 
+/* Main buttons for View Portfolio/Check Project */
 .btn-primary,
 .btn-outline-primary {
     border-color: var(--color-text-secondary);
-    background-color: var(--color-dark-bg); 
+    background-color: var(--color-bg); 
     color: var(--color-accent-blue);
 }
 
@@ -133,18 +130,6 @@ section + section {
     color: var(--color-accent-yellow);
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
-    border: none;
-    background: transparent;
-    color: var(--color-text-primary);
-    font-size: 1.25rem;
-    transition: color 0.3s ease;
-}
-
-.theme-toggle:hover {
-    color: var(--color-accent-blue);
-}
 
 /* ========================================================= */
 /* 4. Section Specific Styles */
@@ -155,23 +140,22 @@ section + section {
   position: fixed;
   width: 100%;
   z-index: 1030;
-  background-color: var(--color-dark-bg); /* Use solid color for fixed header */
-  /* backdrop-filter: blur(8px); Removed for consistency across browsers and themes */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  /* Use variable for background, slightly translucent */
+  background-color: hsla(0, 0%, 14%, 0.95); 
+  backdrop-filter: blur(8px);
 }
 
-.light-theme .header-section {
-    background-color: var(--color-card-bg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+html[data-theme="light"] .header-section {
+    background-color: hsla(0, 0%, 97%, 0.95);
 }
 
 .navbar-brand {
-    color: var(--color-accent-blue) !important;
-    font-weight: 600;
+    color: var(--color-heading) !important;
+    font-weight: 500;
 }
 
 .nav-link {
-    color: var(--color-text-primary) !important;
+    color: var(--color-text) !important;
 }
 
 .nav-link.active,
@@ -179,6 +163,16 @@ section + section {
     color: var(--color-accent-blue) !important;
 }
 
+/* Theme Toggle Button Styling */
+#theme-toggle {
+    background: transparent;
+    border: 1px solid var(--color-text-secondary);
+    color: var(--color-text);
+}
+
+#theme-toggle:hover {
+    color: var(--color-accent-blue);
+}
 
 /* Home Section */
 .home-section {
@@ -187,10 +181,14 @@ section + section {
   display: flex;
   align-items: center;
   
-  /* Background Image Styling - kept as is */
   background-image: url(image/background.png);
   background-size: cover;
   background-position: center;
+}
+
+.home-div {
+    padding: 50px 0;
+    text-align: center;
 }
 
 .home-passport img {
@@ -198,19 +196,22 @@ section + section {
   max-width: 100%;
   height: auto;
   transition: all var(--transition-fast) 0s;
-  box-shadow: 0 0 0 10px rgba(173, 216, 230, 0.5); /* Subtle border effect */
 }
 
 .home-passport:hover {
   transform: scale(1.05);
 }
 
+.home-description {
+  color: var(--color-heading);
+}
+
 .home-name {
-  color: var(--color-accent-blue);
-  text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  text-shadow: 0 0 10px var(--color-text-secondary);
   font-size: 2.5rem;
 }
 
+/* Typing Effect (Update 1: Keyframe change) */
 .home-profile span {
     display: inline-block;
     color: var(--color-accent-blue);
@@ -218,7 +219,6 @@ section + section {
     font-weight: 500;
 }
 
-/* Typing Effect (Updated Text) */
 .typing-effect-text::before {
   content: "Front-End Engineer";
   color: var(--color-accent-blue);
@@ -232,11 +232,12 @@ section + section {
   0%, 100% { content: "Front-End Engineer"; }
   25% { content: "Digital Marketing Specialist"; }
   50% { content: "Full Stack Brand Specialist"; }
-  75% { content: "Mobile App Developer"; } /* UPDATED TEXT */
+  /* Change 1: New text */
+  75% { content: "Mobile App Developer"; } 
 }
 
 
-/* Content Sections (About, Services, Portfolio, Contact) */
+/* About Section */
 .about-section,
 .service-section,
 .portfolio-section,
@@ -246,66 +247,64 @@ section + section {
 }
 
 .about-description p {
-    color: var(--color-text-primary);
+    color: var(--color-text);
     font-size: 1.1rem;
 }
 
 .about-skills h3 {
-    color: var(--color-accent-blue);
     margin-bottom: 15px;
 }
 
 .about-skills li {
     padding: 5px 0;
-    color: var(--color-text-primary);
+    color: var(--color-text);
+    font-weight: 500; /* Added weight for new skills list readability */
 }
 
-/* Service Section */
+
+/* Service Section (Update 4: Removed image styling, using icons) */
 .service-item {
     text-align: center;
-    /* Uses .hover-card */
+    padding: 20px;
 }
 
-.service-item i {
+.service-icon {
     color: var(--color-accent-blue);
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.service-item:hover .service-icon {
+    color: var(--color-accent-yellow);
 }
 
 .service-item h3 {
     font-size: 1.25rem;
-    color: var(--color-text-primary);
 }
 
 
 /* Portfolio Section */
 .portfolio-item {
     text-align: center;
-    /* Uses .hover-card */
+    padding: 15px;
 }
 
 .portfolio-item img {
     width: 100%;
     height: auto;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-bottom: 15px;
 }
 
-.portfolio-item h4 {
-    color: var(--color-accent-blue);
-}
-
 .portfolio-item p {
-    color: var(--color-text-secondary);
+    color: var(--color-text);
     min-height: 100px;
 }
 
 
 /* Contact Section */
-.contact-first-div i {
-    color: var(--color-accent-blue);
-}
-
 .contact-first-div a {
-    color: var(--color-text-primary);
+    color: var(--color-accent-blue);
     display: block;
     padding: 8px 0;
     font-size: 1.1rem;
@@ -315,55 +314,52 @@ section + section {
     color: var(--color-accent-yellow);
 }
 
+.contact-second-div {
+    text-align: left;
+}
+
 .contact-second-div fieldset {
-    border: 1px solid var(--color-section-divider);
+    border: 1px solid var(--color-text-secondary);
     padding: 20px;
     border-radius: 5px;
+    background-color: rgba(103, 101, 101, 0.05); /* Very slight tint */
+}
+
+html[data-theme="light"] .contact-second-div fieldset {
+    background-color: rgba(0, 0, 0, 0.03); 
 }
 
 .contact-second-div legend {
-    color: var(--color-accent-blue);
+    color: var(--color-heading);
     font-size: 1.5rem;
     padding: 0 10px;
 }
 
 .contact-second-div .form-label {
-    color: var(--color-text-primary);
+    color: var(--color-text);
     font-weight: 500;
 }
 
 /* Input/Textarea Custom Styling */
 .form-control {
     background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--color-section-divider);
-    color: #ffffff;
+    border: 1px solid var(--color-text-secondary);
+    color: var(--color-heading);
 }
 
-.light-theme .form-control {
+html[data-theme="light"] .form-control {
     background-color: #ffffff;
-    color: #333333;
+    color: var(--color-text-dark);
 }
 
 .form-control:focus {
     background-color: rgba(255, 255, 255, 0.15);
     border-color: var(--color-accent-blue);
-    box-shadow: 0 0 0 0.25rem rgba(173, 216, 230, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); 
 }
 
-/* Form Message Box Styling */
-#form-message {
-    padding: 10px;
-    border-radius: 5px;
-}
-.alert-success {
-    background-color: rgba(144, 238, 144, 0.2); /* Light Green */
-    color: lightgreen;
-    border: 1px solid lightgreen;
-}
-.alert-danger {
-    background-color: rgba(255, 99, 71, 0.2); /* Light Red */
-    color: tomato;
-    border: 1px solid tomato;
+html[data-theme="light"] .form-control:focus {
+    background-color: #ffffff;
 }
 
 
@@ -375,16 +371,16 @@ footer {
   padding: 20px 0;
 }
 
-footer a {
-    color: var(--color-accent-blue);
+footer p {
+    margin: 5px 0;
 }
+
 
 /* ========================================================= */
 /* 5. Media Queries for Responsiveness */
 /* ========================================================= */
 
 @media (max-width: 768px) {
-    
     .home-passport, 
     .home-description {
         width: 100%;
@@ -404,7 +400,7 @@ footer a {
     }
     
     .about-skills ul {
-        text-align: left;
+        text-align: center;
     }
 
     .service-item,
