@@ -18,6 +18,9 @@
   /* Fonts & Spacing (Theme Agnostic) */
   --spacing-section: 60px;
   --font-family-main: "Poppins", sans-serif;
+  
+  /* NEW VARIABLE for Dark Navbar Text */
+  --color-navbar-text: #212529; /* Dark Bootstrap default color */
 }
 
 
@@ -75,26 +78,38 @@ hr {
   position: fixed;
   width: 100%;
   z-index: 1030;
-  background-color: rgba(18, 18, 18, 0.95);
+  /* Light navbar background for dark text visibility */
+  background-color: rgba(255, 255, 255, 0.95); 
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-secondary);
 }
 
 .navbar-brand { 
-  color: var(--color-text-light) !important; 
-  font-size: 1.5rem; /* Increased size for visibility */
+  /* Navbar Brand Text Color */
+  color: var(--color-navbar-text) !important; 
+  font-size: 1.5rem; 
 }
 
-/* 4. Navbar Link Visibility Fix */
+/* Navbar Link Visibility Fix: Dark Text */
 .nav-link { 
-  color: var(--color-primary) !important; 
-  font-weight: 500; /* Bolder text */
+  color: var(--color-navbar-text) !important; 
+  font-weight: 500;
   font-size: 1.1rem;
 }
 
 .nav-link:hover, .nav-link.active {
+    /* Use the accent color for hover/active state */
     color: var(--color-accent) !important;
     border-bottom: 2px solid var(--color-accent);
+}
+
+/* Ensure the toggler icon is visible on the light header background */
+.navbar-toggler {
+    border-color: rgba(0,0,0,.1);
+}
+.navbar-toggler-icon {
+    /* Bootstrap default uses a dark icon image */
+    filter: invert(0); 
 }
 
 
@@ -119,8 +134,36 @@ hr {
 | 5. HOME SECTION (.home-section)
 |--------------------------------------------------------------------------
 */
+.home-section {
+  background-image: url(image/background.png);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+}
 
-/* 2. Keyframe Activation Fix: Targeting span directly inside .home-profile */
+.home-passport img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 50%;
+  border: 5px solid var(--color-accent);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease-in-out;
+}
+
+.home-passport:hover img { transform: scale(1.05); }
+
+/* Home Section "Hey, I am" Text Fix: White color */
+.home-description p {
+    color: var(--color-text-light) !important; 
+    font-weight: 500;
+}
+.home-name { text-shadow: 2px 2px 5px var(--color-secondary); }
+
+
+/* Keyframe Activation Fix: Targeting span directly inside .home-profile */
 .home-profile span::before {
   content: "Front-End Engineer"; /* Default content */
   color: var(--color-accent);
@@ -138,6 +181,18 @@ hr {
   75% { content: "Full Stack Brand Specialist"; }
   100% { content: "Front-End Engineer"; }
 }
+
+.home-button.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-bg-dark);
+    border: 2px solid var(--color-accent);
+}
+.home-button.btn-primary:hover {
+    background-color: var(--color-bg-dark);
+    color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+}
+
 
 /*
 |--------------------------------------------------------------------------
@@ -165,6 +220,12 @@ hr {
     position: relative;
     overflow: hidden;
     min-height: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Common Background Image Styling */
@@ -181,6 +242,7 @@ hr {
     transition: opacity 0.3s ease, transform 0.5s ease;
     z-index: 1;
 }
+
 /* Individual Background Images */
 .service-mobile::before { background-image: url('image/mobile.png'); }
 .service-web::before { background-image: url('image/webdesign.png'); }
@@ -214,7 +276,13 @@ hr {
 */
 .project-card {
     background-color: var(--color-bg-card);
-    /* ... other styles ... */
+    border: 1px solid var(--color-secondary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -243,14 +311,26 @@ hr {
     box-shadow: 0 0 0 0.25rem rgba(0, 188, 212, 0.25);
 }
 
+/* Form Submit Button Styling */
+.contact-section .btn-primary {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-bg-dark);
+    font-weight: 600;
+}
+
+.contact-section .btn-primary:hover {
+    background-color: #008c9f;
+    border-color: #008c9f;
+}
+
 
 /*
 |--------------------------------------------------------------------------
 | 10. FOOTER
 |--------------------------------------------------------------------------
 */
-/* 3. Footer Visibility Fix */
 .developer-text {
-    color: var(--color-primary) !important; /* Force a brighter color */
+    color: var(--color-primary) !important;
     font-weight: 500;
 }
