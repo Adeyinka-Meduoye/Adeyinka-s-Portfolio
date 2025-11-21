@@ -244,7 +244,7 @@ hr {
 }
 
 /* Individual Background Images */
-.service-mobile::before { background-image: url('image/mobile.png'); }
+.service-mobile::before { background-image: url('image/mobile_app.png'); }
 .service-web::before { background-image: url('image/webdesign.png'); }
 .service-brand::before { background-image: url('image/contentcreation.png'); }
 .service-digital::before { background-image: url('image/digitalmarketing.png'); }
@@ -334,3 +334,4 @@ hr {
     color: var(--color-primary) !important;
     font-weight: 500;
 }
+
