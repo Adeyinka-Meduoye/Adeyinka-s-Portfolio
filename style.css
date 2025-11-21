@@ -1,329 +1,386 @@
-:root{
-  --bg: #252525;
-  --text: #e6e6e6;
-  --muted: #bdbdbd;
-  --accent: #61b6ff;
-  --gold: #e6c07a;
-  --glass: rgba(255,255,255,0.04);
-  --radius: 12px;
-  --container: 1100px;
-  --gap: 1.25rem;
-  --shadow: 0 8px 24px rgba(0,0,0,0.45);
-  --transition: 180ms cubic-bezier(.2,.8,.2,1);
+/* ========================================================= */
+/* 1. Design Tokens (CSS Variables) */
+/* ========================================================= */
+
+:root {
+  /* Colors */
+  --color-dark-bg: #252525;         /* Main Background */
+  --color-text-primary: #bdbdbd;    /* Primary Text Color (Light Gray) */
+  --color-text-secondary: #676565;  /* Secondary Text Color (Darker Gray) */
+  --color-accent-blue: lightblue;   /* Primary Accent Color */
+  --color-accent-yellow: lightgoldenrodyellow; /* Secondary Accent Color */
+  --color-dark-blue-hover: darkblue; /* Button Hover Background */
+  
+  /* Typography */
+  --font-family-main: "Poppins", sans-serif;
+  
+  /* Transitions */
+  --transition-fast: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Light theme overrides using a single class on <html> */
-.light-theme {
-  --bg: #f7f8fb;
-  --text: #102028;
-  --muted: #475560;
-  --accent: #0b74ff;
-  --gold: #b88633;
-  --glass: rgba(16,32,40,0.04);
-  --shadow: 0 8px 20px rgba(16,32,40,0.06);
+/* ========================================================= */
+/* 2. Global Resets and Base Styles */
+/* ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Base */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size:16px; }
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: var(--bg);
-  color: var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height: 1.5;
-  min-height: 100vh;
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-main);
+  line-height: 1.6; /* Improved readability */
 }
 
-/* Layout helpers */
-.container {
-  width: min(96%, var(--container));
-  margin-inline: auto;
-  padding-block: 1.25rem;
-}
-
-/* Header */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 120;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-}
-.header-inner {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1rem;
-}
-
-/* Brand */
-.brand {
-  color:var(--text);
+a {
   text-decoration: none;
-  font-weight:700;
-  font-size:1rem;
-  display:inline-flex;
-  align-items:center;
-  gap:.5rem;
+  color: var(--color-text-primary); /* Default link color */
+  transition: color 0.3s ease;
 }
 
-/* Header controls */
-.header-controls {
-  display:flex;
-  align-items:center;
-  gap:.5rem;
+/* Global hover for links (unless overridden by Bootstrap or component styles) */
+a:hover {
+  color: var(--color-accent-blue);
 }
 
-/* Theme toggle */
-.theme-toggle {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid rgba(255,255,255,0.03);
-  padding: .35rem .5rem;
-  border-radius: 8px;
-  cursor: pointer;
-  display:inline-flex;
-  align-items:center;
-  gap:.5rem;
-}
-.theme-toggle:focus { outline: 3px solid rgba(0,0,0,0.12); }
-
-/* Nav */
-.nav-toggle {
-  background: transparent;
-  border: none;
-  display: inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:.35rem;
-  cursor:pointer;
-  color:var(--text);
-}
-.hamburger {
-  width:22px;
-  height:2px;
-  background:var(--text);
-  position:relative;
-  display:block;
-  border-radius:2px;
-}
-.hamburger::before,
-.hamburger::after{
-  content:"";
-  position:absolute;
-  left:0;
-  width:22px;
-  height:2px;
-  background:var(--text);
-  border-radius:2px;
-  transition: transform var(--transition);
-}
-.hamburger::before{ top:-7px; }
-.hamburger::after{ top:7px; }
-
-.primary-nav {
-  display:flex;
-  gap:1rem;
-}
-.nav-list{ list-style:none; display:flex; gap:0.5rem; align-items:center; }
-.nav-link{
-  color:var(--muted);
-  text-decoration:none;
-  padding:.5rem .6rem;
-  border-radius:8px;
-  transition: color var(--transition), background var(--transition);
-  font-weight:500;
-}
-.nav-link:hover,
-.nav-link[aria-current="true"],
-.nav-link.active {
-  color:var(--text);
-  background:var(--glass);
+ul {
+  list-style: none; /* Inherited from old CSS, kept for skill list */
+  padding: 0;
 }
 
-/* Hero */
-.hero {
-  padding-top:1.75rem;
-  padding-bottom:2.5rem;
-  background-image: url("image/background.png");
-  background-repeat:no-repeat;
-  background-position:right top;
-  background-size:contain;
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff; /* Headings stand out */
 }
-.hero-inner {
-  display:flex;
-  gap:2rem;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-.hero-avatar img{
-  width: 280px;
-  max-width: 100%;
-  height:auto;
-  border-radius:50%;
-  box-shadow: var(--shadow);
-  border: 6px solid rgba(255,255,255,0.03);
-  transition: transform var(--transition);
-}
-.hero-avatar img:hover { transform: translateY(-6px) scale(1.02); }
 
-.hero-title { font-size: clamp(1.5rem, 3.6vw, 2.25rem); margin-bottom:.25rem; color:var(--text); }
-.hero-sub { color:var(--muted); margin-bottom:1rem; font-weight:500; }
+/* Separators - Replacing the <hr> tags */
+section + section {
+    border-top: 1px solid var(--color-text-secondary);
+}
 
-/* Buttons */
+/* ========================================================= */
+/* 3. Reusable Components & Utilities */
+/* ========================================================= */
+
+/* Generic Card Hover Effect (for Portfolio and Services) */
+.hover-card {
+  transition: transform var(--transition-fast) 0s;
+  /* Resetting margin/width properties removed from original CSS, 
+     relying on Bootstrap grid for layout */
+  margin: 10px; /* Added slight margin for visual spacing in grid */
+}
+
+.hover-card:hover {
+  transform: scale(1.03); /* Slightly reduced scale for better look in a grid */
+  box-shadow: 0 0 20px rgba(103, 101, 101, 0.4); /* Added subtle shadow on hover */
+}
+
+/* Bootstrap Button Overrides */
 .btn {
-  display:inline-block;
-  padding:.6rem 1rem;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:600;
-  transition: transform var(--transition), box-shadow var(--transition);
-  border: 1px solid transparent;
-}
-.btn-primary {
-  background: linear-gradient(90deg,var(--accent),#3da0ff);
-  color:#071025;
-  box-shadow: 0 6px 18px rgba(37,150,255,0.14);
-}
-.btn-outline {
-  border:1px solid rgba(255,255,255,0.06);
-  color:var(--text);
-  background:transparent;
-}
-.btn-sm { padding: .45rem .7rem; font-size:.95rem; }
-
-/* Sections */
-.section { padding-block: 2.5rem; }
-.section-head h2{ font-size:1.25rem; color:var(--text); margin-bottom:.75rem; }
-
-/* About grid */
-.about-grid {
-  display:grid;
-  grid-template-columns: 1fr 320px;
-  gap:var(--gap);
-  align-items:start;
-}
-.about-bio p { color:var(--muted); margin-bottom:.6rem; }
-.social-links a { color:var(--muted); margin-right:.6rem; font-size:1.35rem; }
-
-/* Skills aside */
-.about-skills h3{ margin-bottom:.5rem; color:var(--text); }
-.skills-list { list-style: none; color:var(--muted); columns: 1; }
-@media (min-width:900px){ .skills-list { columns: 2; column-gap: 1.25rem; } }
-.skills-list li { margin-bottom: .45rem; break-inside: avoid; }
-
-/* Services */
-.services-grid {
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap:1.25rem;
-  margin-top:1rem;
-}
-.service-card {
-  background: rgba(255,255,255,0.02);
-  padding:1rem;
-  border-radius:var(--radius);
-  text-align:center;
-  transition: transform var(--transition), box-shadow var(--transition);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.45);
-}
-.service-card:hover{ transform: translateY(-8px); }
-.service-icon { font-size: 28px; margin-bottom: .6rem; color: var(--accent); }
-
-/* Portfolio grid */
-.projects-grid {
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:1rem;
-  margin-top:1rem;
-}
-.project {
-  background: rgba(255,255,255,0.02);
-  padding:1rem;
-  border-radius:var(--radius);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-.project img{ width:100%; height:150px; object-fit:cover; border-radius:8px; margin-bottom:.5rem; }
-.project:hover{ transform: translateY(-6px); }
-
-/* Contact */
-.contact-grid {
-  display:grid;
-  grid-template-columns: 380px 1fr;
-  gap:var(--gap);
-}
-.contact-info a{ color:var(--muted); text-decoration:none; display:inline-block; margin-bottom:.6rem; }
-.contact-form fieldset{ border: none; padding:0; }
-.contact-form label{ display:block; margin-top:.6rem; color:var(--muted); font-weight:500; }
-.contact-form input,
-.contact-form textarea {
-  width:100%;
-  padding:.6rem;
-  margin-top:.3rem;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,0.04);
-  background: rgba(255,255,255,0.02);
-  color:var(--text);
-  outline:none;
-}
-.form-actions { margin-top:1rem; display:flex; gap:.75rem; align-items:center; }
-
-/* Footer */
-.site-footer {
-  border-top: 1px solid rgba(255,255,255,0.03);
-  margin-top:2rem;
-  padding-block:1rem;
-  color:var(--muted);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.4s ease;
 }
 
-/* Toast */
-.toast {
+.btn-primary,
+.btn-outline-primary {
+    /* Customizing Bootstrap buttons to match portfolio colors */
+    border-color: var(--color-text-secondary);
+    background-color: var(--color-dark-bg); 
+    color: var(--color-accent-blue);
+}
+
+.btn-primary:hover,
+.btn-outline-primary:hover {
+    color: var(--color-accent-yellow);
+    background-color: var(--color-dark-blue-hover);
+    border-color: var(--color-accent-blue);
+}
+
+
+/* Social Icons (using Font Awesome) */
+.social-icon {
+    font-size: 36px !important; /* Overriding inline style/FA default */
+    margin: 0 8px;
+    color: var(--color-accent-blue);
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--color-accent-yellow);
+}
+
+
+/* ========================================================= */
+/* 4. Section Specific Styles */
+/* ========================================================= */
+
+/* Header & Navigation */
+.header-section {
   position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  min-width: 240px;
-  background: rgba(10,10,10,0.8);
-  color: white;
-  padding: .75rem 1rem;
-  border-radius:10px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-  transform: translateY(12px);
-  opacity: 0;
-  transition: opacity var(--transition), transform var(--transition);
-  pointer-events:none;
+  width: 100%;
+  z-index: 1030; /* Use Bootstrap's high z-index convention */
+  background-color: rgba(37, 37, 37, 0.95); /* Slightly transparent background */
+  backdrop-filter: blur(8px);
+  padding: 0; /* Bootstrap nav handles spacing */
 }
-.toast.show { opacity:1; transform: translateY(0); pointer-events:auto; }
 
-/* Responsive */
-@media (max-width: 980px){
-  .about-grid{ grid-template-columns: 1fr; }
-  .contact-grid{ grid-template-columns: 1fr; }
-  .services-grid{ grid-template-columns: repeat(2, 1fr); }
-  .projects-grid{ grid-template-columns: repeat(2, 1fr); }
-  .primary-nav{ display:none; }
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: 500;
 }
-@media (max-width: 720px){
-  .hero-inner{ flex-direction:column-reverse; text-align:center; }
-  .hero-avatar img{ width:220px; }
-  .projects-grid{ grid-template-columns: 1fr; }
-  .services-grid{ grid-template-columns: 1fr; }
+
+.nav-link {
+    color: var(--color-text-primary) !important;
 }
+
+.nav-link.active,
+.nav-link:hover {
+    color: var(--color-accent-blue) !important;
+}
+
+
+/* Home Section */
+.home-section {
+  /* Added padding-top to account for fixed navbar height */
+  padding-top: 100px; 
+  min-height: 100vh; /* Make sure it takes up at least the full viewport height */
+  display: flex; /* Using flex to vertically center content */
+  align-items: center;
+  
+  /* Background Image Styling */
+  background-image: url(image/background.png);
+  background-size: cover; /* Changed to cover for better modern fitting */
+  background-position: center;
+}
+
+.home-div {
+    /* Removed redundant flex layout properties, relying on Bootstrap row/col inside the container */
+    padding: 50px 0;
+    text-align: center;
+}
+
+.home-passport img {
+  border-radius: 50%; /* Using percentage for perfect circle */
+  max-width: 100%;
+  height: auto;
+  transition: all var(--transition-fast) 0s;
+}
+
+.home-passport:hover {
+  transform: scale(1.05);
+}
+
+.home-description {
+  color: #ffffff;
+}
+
+.home-name {
+  text-shadow: 0 0 10px #676565; /* Adjusted text-shadow for a modern glow effect */
+  font-size: 2.5rem; /* Using rem for better scaling */
+}
+
+/* Typing Effect (kept as is, but improved structure) */
+.home-profile span {
+    display: inline-block;
+    color: var(--color-accent-blue);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.typing-effect-text::before {
+  content: "Front-End Engineer";
+  color: var(--color-accent-blue);
+  animation-name: change-text;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes change-text {
+  0%, 100% { content: "Front-End Engineer"; }
+  25% { content: "Digital Marketing Specialist"; }
+  50% { content: "Full Stack Brand Specialist"; }
+  75% { content: "Passionate Writer"; }
+}
+
+
+/* About Section */
+.about-section,
+.service-section,
+.portfolio-section,
+.contact-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.about-description p {
+    color: var(--color-text-primary);
+    font-size: 1.1rem;
+}
+
+.about-skills h3 {
+    margin-bottom: 15px;
+}
+
+.about-skills li {
+    padding: 5px 0;
+    color: var(--color-text-primary);
+}
+
+
+/* Service Section */
+.service-item {
+    text-align: center;
+    padding: 20px;
+    /* Using hover-card utility for transition */
+}
+
+.service-item img {
+    max-width: 100px; /* Constrain image size */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.service-item h3 {
+    font-size: 1.25rem;
+}
+
+/* Applying reusable hover-card class */
+.service-item {
+    @extend .hover-card;
+}
+
+
+/* Portfolio Section */
+.portfolio-item {
+    text-align: center;
+    padding: 15px;
+    /* Using hover-card utility for transition */
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.portfolio-item p {
+    color: var(--color-text-primary);
+    min-height: 100px; /* Enforcing consistent card height for projects */
+}
+
+/* Applying reusable hover-card class to all projects */
+.portfolio-item {
+    @extend .hover-card;
+}
+
+
+/* Contact Section */
+.contact-first-div a {
+    /* Styling links in the first contact column */
+    color: var(--color-accent-blue);
+    display: block; /* Make links take full width and separate lines */
+    padding: 8px 0;
+    font-size: 1.1rem;
+}
+
+.contact-first-div a:hover {
+    color: var(--color-accent-yellow);
+}
+
+.contact-second-div {
+    text-align: left; /* Adjust form text alignment */
+}
+
+.contact-second-div fieldset {
+    border: 1px solid var(--color-text-secondary);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.contact-second-div legend {
+    color: #ffffff;
+    font-size: 1.5rem;
+    padding: 0 10px;
+}
+
+.contact-second-div .form-label {
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
+
+/* Input/Textarea Custom Styling */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-text-secondary);
+    color: #ffffff;
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--color-accent-blue);
+    box-shadow: 0 0 0 0.25rem rgba(173, 216, 230, 0.25); /* lightblue with transparency */
+}
+
+
+/* Footer Section */
+footer {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  padding: 20px 0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+
+/* ========================================================= */
+/* 5. Media Queries for Responsiveness */
+/* ========================================================= */
+
 @media (max-width: 768px) {
-  .home-div {
-    flex-direction: column;
-  }
-  .home-passport {
-    order: 1;
-  }
-  .home-description {
-    order: 2;
-  }
+    /* Adjustments for tablets and smaller screens */
+    
+    .home-div {
+        flex-direction: column;
+    }
+    
+    .home-passport, 
+    .home-description {
+        width: 100%; /* Allow full width on small screens */
+        max-width: 400px; /* Keep a max size */
+        margin-bottom: 30px;
+    }
+    
+    .about-section .row {
+        text-align: center;
+    }
+    
+    .about-description,
+    .about-skills {
+        width: 100%;
+        margin: 0;
+        padding: 0 15px;
+    }
+    
+    .about-skills ul {
+        text-align: center;
+    }
+
+    .service-item,
+    .portfolio-item {
+        margin: 10px 0;
+    }
 }
-
-/* Small JS state classes */
-.nav-open .primary-nav { display:block; position:absolute; inset:64px 8px auto 8px; background:var(--bg); border-radius:10px; padding:1rem; box-shadow:var(--shadow); }
-
