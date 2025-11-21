@@ -1,21 +1,33 @@
 /* ========================================================= */
-/* 1. Design Tokens (CSS Variables) */
+/* 1. Design Tokens (CSS Variables) and Theme Definitions */
 /* ========================================================= */
 
 :root {
-  /* Colors */
+  /* Common variables */
+  --font-family-main: "Poppins", sans-serif;
+  --transition-fast: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* Dark Theme Variables (Default) */
   --color-dark-bg: #252525;         /* Main Background */
   --color-text-primary: #bdbdbd;    /* Primary Text Color (Light Gray) */
   --color-text-secondary: #676565;  /* Secondary Text Color (Darker Gray) */
   --color-accent-blue: lightblue;   /* Primary Accent Color */
   --color-accent-yellow: lightgoldenrodyellow; /* Secondary Accent Color */
-  --color-dark-blue-hover: darkblue; /* Button Hover Background */
-  
-  /* Typography */
-  --font-family-main: "Poppins", sans-serif;
-  
-  /* Transitions */
-  --transition-fast: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --color-dark-blue-hover: #004c99; /* Button Hover Background */
+  --color-card-bg: #333333;         /* Card Background (Slightly lighter than main BG) */
+  --color-section-divider: var(--color-text-secondary);
+}
+
+/* Light Theme Overrides */
+.light-theme {
+  --color-dark-bg: #f5f5f5;
+  --color-text-primary: #444444;
+  --color-text-secondary: #888888;
+  --color-accent-blue: #007bff; /* Brighter primary accent */
+  --color-accent-yellow: #ffc107; /* Standard yellow accent */
+  --color-dark-blue-hover: #0056b3;
+  --color-card-bg: #ffffff;
+  --color-section-divider: #e0e0e0;
 }
 
 /* ========================================================= */
@@ -36,32 +48,32 @@ body {
   background-color: var(--color-dark-bg);
   color: var(--color-text-primary);
   font-family: var(--font-family-main);
-  line-height: 1.6; /* Improved readability */
+  line-height: 1.6;
+  transition: background-color 0.5s, color 0.5s; /* Smooth theme transition */
 }
 
 a {
   text-decoration: none;
-  color: var(--color-text-primary); /* Default link color */
+  color: var(--color-text-primary);
   transition: color 0.3s ease;
 }
 
-/* Global hover for links (unless overridden by Bootstrap or component styles) */
 a:hover {
   color: var(--color-accent-blue);
 }
 
 ul {
-  list-style: none; /* Inherited from old CSS, kept for skill list */
+  list-style: none;
   padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #ffffff; /* Headings stand out */
+    color: var(--color-text-primary); /* Headings should use primary text color */
 }
 
-/* Separators - Replacing the <hr> tags */
+/* Separators - Border between sections */
 section + section {
-    border-top: 1px solid var(--color-text-secondary);
+    border-top: 1px solid var(--color-section-divider);
 }
 
 /* ========================================================= */
@@ -70,15 +82,20 @@ section + section {
 
 /* Generic Card Hover Effect (for Portfolio and Services) */
 .hover-card {
-  transition: transform var(--transition-fast) 0s;
-  /* Resetting margin/width properties removed from original CSS, 
-     relying on Bootstrap grid for layout */
-  margin: 10px; /* Added slight margin for visual spacing in grid */
+  transition: transform var(--transition-fast) 0s, box-shadow var(--transition-fast) 0s;
+  background-color: var(--color-card-bg); /* Use card background variable */
+  padding: 20px;
+  border-radius: 8px;
 }
 
 .hover-card:hover {
-  transform: scale(1.03); /* Slightly reduced scale for better look in a grid */
-  box-shadow: 0 0 20px rgba(103, 101, 101, 0.4); /* Added subtle shadow on hover */
+  transform: scale(1.03);
+  /* Adjust shadow based on theme */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.light-theme .hover-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Bootstrap Button Overrides */
@@ -92,7 +109,6 @@ section + section {
 
 .btn-primary,
 .btn-outline-primary {
-    /* Customizing Bootstrap buttons to match portfolio colors */
     border-color: var(--color-text-secondary);
     background-color: var(--color-dark-bg); 
     color: var(--color-accent-blue);
@@ -105,10 +121,9 @@ section + section {
     border-color: var(--color-accent-blue);
 }
 
-
 /* Social Icons (using Font Awesome) */
 .social-icon {
-    font-size: 36px !important; /* Overriding inline style/FA default */
+    font-size: 36px !important;
     margin: 0 8px;
     color: var(--color-accent-blue);
     transition: color 0.3s ease;
@@ -118,6 +133,18 @@ section + section {
     color: var(--color-accent-yellow);
 }
 
+/* Theme Toggle Button */
+.theme-toggle {
+    border: none;
+    background: transparent;
+    color: var(--color-text-primary);
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--color-accent-blue);
+}
 
 /* ========================================================= */
 /* 4. Section Specific Styles */
@@ -127,15 +154,20 @@ section + section {
 .header-section {
   position: fixed;
   width: 100%;
-  z-index: 1030; /* Use Bootstrap's high z-index convention */
-  background-color: rgba(37, 37, 37, 0.95); /* Slightly transparent background */
-  backdrop-filter: blur(8px);
-  padding: 0; /* Bootstrap nav handles spacing */
+  z-index: 1030;
+  background-color: var(--color-dark-bg); /* Use solid color for fixed header */
+  /* backdrop-filter: blur(8px); Removed for consistency across browsers and themes */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.light-theme .header-section {
+    background-color: var(--color-card-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
-    color: #ffffff !important;
-    font-weight: 500;
+    color: var(--color-accent-blue) !important;
+    font-weight: 600;
 }
 
 .nav-link {
@@ -150,45 +182,35 @@ section + section {
 
 /* Home Section */
 .home-section {
-  /* Added padding-top to account for fixed navbar height */
   padding-top: 100px; 
-  min-height: 100vh; /* Make sure it takes up at least the full viewport height */
-  display: flex; /* Using flex to vertically center content */
+  min-height: 100vh;
+  display: flex;
   align-items: center;
   
-  /* Background Image Styling */
+  /* Background Image Styling - kept as is */
   background-image: url(image/background.png);
-  background-size: cover; /* Changed to cover for better modern fitting */
+  background-size: cover;
   background-position: center;
 }
 
-.home-div {
-    /* Removed redundant flex layout properties, relying on Bootstrap row/col inside the container */
-    padding: 50px 0;
-    text-align: center;
-}
-
 .home-passport img {
-  border-radius: 50%; /* Using percentage for perfect circle */
+  border-radius: 50%;
   max-width: 100%;
   height: auto;
   transition: all var(--transition-fast) 0s;
+  box-shadow: 0 0 0 10px rgba(173, 216, 230, 0.5); /* Subtle border effect */
 }
 
 .home-passport:hover {
   transform: scale(1.05);
 }
 
-.home-description {
-  color: #ffffff;
-}
-
 .home-name {
-  text-shadow: 0 0 10px #676565; /* Adjusted text-shadow for a modern glow effect */
-  font-size: 2.5rem; /* Using rem for better scaling */
+  color: var(--color-accent-blue);
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  font-size: 2.5rem;
 }
 
-/* Typing Effect (kept as is, but improved structure) */
 .home-profile span {
     display: inline-block;
     color: var(--color-accent-blue);
@@ -196,6 +218,7 @@ section + section {
     font-weight: 500;
 }
 
+/* Typing Effect (Updated Text) */
 .typing-effect-text::before {
   content: "Front-End Engineer";
   color: var(--color-accent-blue);
@@ -209,11 +232,11 @@ section + section {
   0%, 100% { content: "Front-End Engineer"; }
   25% { content: "Digital Marketing Specialist"; }
   50% { content: "Full Stack Brand Specialist"; }
-  75% { content: "Passionate Writer"; }
+  75% { content: "Mobile App Developer"; } /* UPDATED TEXT */
 }
 
 
-/* About Section */
+/* Content Sections (About, Services, Portfolio, Contact) */
 .about-section,
 .service-section,
 .portfolio-section,
@@ -228,6 +251,7 @@ section + section {
 }
 
 .about-skills h3 {
+    color: var(--color-accent-blue);
     margin-bottom: 15px;
 }
 
@@ -236,60 +260,53 @@ section + section {
     color: var(--color-text-primary);
 }
 
-
 /* Service Section */
 .service-item {
     text-align: center;
-    padding: 20px;
-    /* Using hover-card utility for transition */
+    /* Uses .hover-card */
 }
 
-.service-item img {
-    max-width: 100px; /* Constrain image size */
-    height: auto;
-    margin-bottom: 10px;
+.service-item i {
+    color: var(--color-accent-blue);
 }
 
 .service-item h3 {
     font-size: 1.25rem;
-}
-
-/* Applying reusable hover-card class */
-.service-item {
-    @extend .hover-card;
+    color: var(--color-text-primary);
 }
 
 
 /* Portfolio Section */
 .portfolio-item {
     text-align: center;
-    padding: 15px;
-    /* Using hover-card utility for transition */
+    /* Uses .hover-card */
 }
 
 .portfolio-item img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 4px;
     margin-bottom: 15px;
 }
 
-.portfolio-item p {
-    color: var(--color-text-primary);
-    min-height: 100px; /* Enforcing consistent card height for projects */
+.portfolio-item h4 {
+    color: var(--color-accent-blue);
 }
 
-/* Applying reusable hover-card class to all projects */
-.portfolio-item {
-    @extend .hover-card;
+.portfolio-item p {
+    color: var(--color-text-secondary);
+    min-height: 100px;
 }
 
 
 /* Contact Section */
-.contact-first-div a {
-    /* Styling links in the first contact column */
+.contact-first-div i {
     color: var(--color-accent-blue);
-    display: block; /* Make links take full width and separate lines */
+}
+
+.contact-first-div a {
+    color: var(--color-text-primary);
+    display: block;
     padding: 8px 0;
     font-size: 1.1rem;
 }
@@ -298,18 +315,14 @@ section + section {
     color: var(--color-accent-yellow);
 }
 
-.contact-second-div {
-    text-align: left; /* Adjust form text alignment */
-}
-
 .contact-second-div fieldset {
-    border: 1px solid var(--color-text-secondary);
+    border: 1px solid var(--color-section-divider);
     padding: 20px;
     border-radius: 5px;
 }
 
 .contact-second-div legend {
-    color: #ffffff;
+    color: var(--color-accent-blue);
     font-size: 1.5rem;
     padding: 0 10px;
 }
@@ -322,14 +335,35 @@ section + section {
 /* Input/Textarea Custom Styling */
 .form-control {
     background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--color-text-secondary);
+    border: 1px solid var(--color-section-divider);
     color: #ffffff;
+}
+
+.light-theme .form-control {
+    background-color: #ffffff;
+    color: #333333;
 }
 
 .form-control:focus {
     background-color: rgba(255, 255, 255, 0.15);
     border-color: var(--color-accent-blue);
-    box-shadow: 0 0 0 0.25rem rgba(173, 216, 230, 0.25); /* lightblue with transparency */
+    box-shadow: 0 0 0 0.25rem rgba(173, 216, 230, 0.25);
+}
+
+/* Form Message Box Styling */
+#form-message {
+    padding: 10px;
+    border-radius: 5px;
+}
+.alert-success {
+    background-color: rgba(144, 238, 144, 0.2); /* Light Green */
+    color: lightgreen;
+    border: 1px solid lightgreen;
+}
+.alert-danger {
+    background-color: rgba(255, 99, 71, 0.2); /* Light Red */
+    color: tomato;
+    border: 1px solid tomato;
 }
 
 
@@ -341,26 +375,20 @@ footer {
   padding: 20px 0;
 }
 
-footer p {
-    margin: 5px 0;
+footer a {
+    color: var(--color-accent-blue);
 }
-
 
 /* ========================================================= */
 /* 5. Media Queries for Responsiveness */
 /* ========================================================= */
 
 @media (max-width: 768px) {
-    /* Adjustments for tablets and smaller screens */
-    
-    .home-div {
-        flex-direction: column;
-    }
     
     .home-passport, 
     .home-description {
-        width: 100%; /* Allow full width on small screens */
-        max-width: 400px; /* Keep a max size */
+        width: 100%;
+        max-width: 400px;
         margin-bottom: 30px;
     }
     
@@ -376,7 +404,7 @@ footer p {
     }
     
     .about-skills ul {
-        text-align: center;
+        text-align: left;
     }
 
     .service-item,
