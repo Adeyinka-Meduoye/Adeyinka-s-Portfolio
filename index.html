@@ -1,206 +1,264 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Adeyinka Meduoye Portfolio" />
-  <meta name="keywords" content="Adeyinka, Adeyinka Meduoye, Front-End Web Developer, Web Design, Software Developer" />
-  <title>Adeyinka's Portfolio</title>
-  <link rel="shortcut icon" href="image/passport.png" type="image/x-icon" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Adeyinka Meduoye — Mobile App Developer, Front-End Engineer, Digital Marketing Specialist, Brand Strategist" />
+  <meta name="keywords" content="Adeyinka Meduoye, Mobile App Developer, Front-End Engineer, Web Developer, Digital Marketing, Portfolio" />
+  <title>Adeyinka Meduoye — Portfolio</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="image/passport.png" type="image/png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome 6 (CDN) - replace integrity if you pin it -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Page theme color for mobile -->
+  <meta name="theme-color" content="#252525" />
 </head>
-<body class="dark-mode">
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Go to home">👨‍💻 Adeyinka</a>
 
-<header class="header-section">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#home-section">👨‍💻 Adeyinka</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="#home-section">&lt;Home&gt;</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about-section">&lt;About&gt;</a></li>
-          <li class="nav-item"><a class="nav-link" href="#service-section">&lt;Services&gt;</a></li>
-          <li class="nav-item"><a class="nav-link" href="#portfolio-section">&lt;Portfolio&gt;</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact-section">&lt;Contact&gt;</a></li>
+      <div class="header-controls">
+        <!-- Theme toggle -->
+        <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle light and dark theme">
+          <span id="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+
+        <!-- Mobile menu toggle -->
+        <button id="nav-toggle" class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <nav id="primary-nav" class="primary-nav" role="navigation" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#services">Services</a></li>
+          <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
-        <div class="d-flex align-items-center gap-2">
-          <button id="mode-toggle">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <!-- Home -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <figure class="hero-avatar" aria-hidden="false">
+          <img src="image/passport.png" alt="Photo of Adeyinka Meduoye" loading="lazy" width="340" height="340">
+        </figure>
+
+        <div class="hero-content">
+          <h1 class="hero-title">Hi, I’m <strong>Adeyinka Meduoye</strong></h1>
+          <p class="hero-sub">
+            I’m a <span id="role-typed" aria-live="polite">Front-End Engineer</span>
+          </p>
+
+          <p class="hero-cta">
+            <a class="btn btn-primary" href="#portfolio">View Portfolio</a>
+            <a class="btn btn-outline" href="#contact">Get in touch</a>
+          </p>
         </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </section>
 
-<main>
+    <!-- About -->
+    <section id="about" class="section about">
+      <div class="container section-inner">
+        <header class="section-head">
+          <h2>About</h2>
+        </header>
 
-  <!-- Home -->
-  <section class="home-section" id="home-section">
-    <div class="open-home">&lt;Home&gt;</div>
-    <div class="home-div">
-      <div class="home-passport">
-        <img src="image/passport.png" alt="Adeyinka's image" />
-      </div>
-      <div class="home-description">
-        <h1 class="home-name">Hi. I'm Adeyinka Meduoye</h1>
-        <p class="home-profile">I'm a <span></span></p>
-        <a href="#portfolio-section" class="home-button">View Portfolio</a>
-      </div>
-    </div>
-    <div class="close-home">&lt;/Home&gt;</div>
-  </section>
-  <hr>
+        <div class="about-grid">
+          <div class="about-bio">
+            <p>
+              Adeyinka is a mobile app developer, front-end engineer, digital marketing specialist, and full-stack brand specialist who supports a diverse portfolio of public and private sector projects in mobile app development, web development, brand strategy and design, strategic communications, and human-centred design. He is driven by leadership, technology, entrepreneurship, and public policy. He utilises his diverse skill set, innovative mindset, and demonstrated leadership experiences to drive meaningful change and achieve excellence in whatever he does.
+            </p>
 
-  <!-- About -->
-  <section class="about-section" id="about-section">
-    <div class="open-about">&lt;About&gt;</div>
-    <div class="about-div">
-      <div class="about-description">
-        <p>
-          Adeyinka is a mobile app developer, front-end engineer, digital marketing specialist, and full-stack brand specialist who supports a diverse portfolio of public and private sector projects in mobile app development, web development, brand strategy and design, strategic communications, and human-centred design. He is driven by leadership, technology, entrepreneurship, and public policy. He utilises his diverse skill set, innovative mindset, and demonstrated leadership experiences to drive meaningful change and achieve excellence in whatever he does.
-        </p>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/adeyinka-meduoye-56848b184/"><i class="fa fa-linkedin-square fa-2x"></i></a>
-          <a href="https://github.com/Adeyinka-Meduoye"><i class="fa fa-github-square fa-2x"></i></a>
-          <a href="https://web.facebook.com/medus4real"><i class="fa fa-facebook-square fa-2x"></i></a>
-          <a href="https://twitter.com/IamMedus"><i class="fa fa-twitter-square fa-2x"></i></a>
+            <p class="social-links" aria-hidden="false">
+              <a href="https://www.linkedin.com/in/adeyinka-meduoye-56848b184/" aria-label="LinkedIn profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+              <a href="https://github.com/Adeyinka-Meduoye" aria-label="GitHub profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+              <a href="https://web.facebook.com/medus4real" aria-label="Facebook profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+              <a href="https://twitter.com/IamMedus" aria-label="Twitter profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+            </p>
+          </div>
+
+          <aside class="about-skills" aria-label="Technical skills">
+            <h3>Technical Skills</h3>
+            <ul class="skills-list">
+              <li>Product Strategy &amp; Innovation</li>
+              <li>AI-Driven Solution Design</li>
+              <li>Front-End Engineering (HTML, CSS, JS, React)</li>
+              <li>Mobile Development (Flutter)</li>
+              <li>Web Development (WordPress, Webflow)</li>
+              <li>Digital Marketing &amp; Analytics</li>
+              <li>Brand Strategy &amp; Storytelling</li>
+              <li>Leadership &amp; Organisational Systems</li>
+              <li>Project Management</li>
+              <li>Public Speaking &amp; Strategic Communication</li>
+              <li>Design Thinking &amp; Systems Thinking</li>
+              <li>Research &amp; Data Analysis</li>
+            </ul>
+          </aside>
         </div>
       </div>
-      <div class="about-skills">
-        <h2 class="about-skills-heading">Technical Skills</h2>
-        <ul>
-          <li>Product Strategy & Innovation</li>
-          <li>AI-Driven Solution Design</li>
-          <li>Front-End Engineering (HTML, CSS, JS, React)</li>
-          <li>Mobile Development (Flutter)</li>
-          <li>Web Development (WordPress, Webflow)</li>
-          <li>Digital Marketing & Analytics</li>
-          <li>Brand Strategy & Storytelling</li>
-          <li>Leadership & Organisational Systems</li>
-          <li>Project Management</li>
-          <li>Public Speaking & Strategic Communication</li>
-          <li>Design Thinking & Systems Thinking</li>
-          <li>Research & Data Analysis</li>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section services">
+      <div class="container section-inner">
+        <header class="section-head">
+          <h2>Services</h2>
+        </header>
+
+        <ul class="services-grid" role="list">
+          <li class="service-card">
+            <i class="fa-solid fa-mobile-screen-button service-icon" aria-hidden="true"></i>
+            <h4>Mobile App Development</h4>
+            <p>Flutter apps, cross-platform solutions and UX-first mobile experiences.</p>
+          </li>
+
+          <li class="service-card">
+            <i class="fa-solid fa-browser service-icon" aria-hidden="true"></i>
+            <h4>Web Design &amp; Development</h4>
+            <p>Responsive websites, modern front-end stacks and accessible interfaces.</p>
+          </li>
+
+          <li class="service-card">
+            <i class="fa-solid fa-paintbrush-four service-icon" aria-hidden="true"></i>
+            <h4>Brand Design &amp; Strategy</h4>
+            <p>Brand identity, storytelling, and strategic visual systems.</p>
+          </li>
+
+          <li class="service-card">
+            <i class="fa-solid fa-chart-line service-icon" aria-hidden="true"></i>
+            <h4>Digital Marketing</h4>
+            <p>Growth strategies, content, analytics and performance-driven campaigns.</p>
+          </li>
         </ul>
       </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="section portfolio">
+      <div class="container section-inner">
+        <header class="section-head">
+          <h2>Portfolio</h2>
+        </header>
+
+        <div class="projects-grid">
+          <article class="project">
+            <img src="image/clock.PNG" alt="All-round clock project screenshot" loading="lazy">
+            <h4>All-round Clock</h4>
+            <p>Digital + analog clock with light/dark theme toggle and polished UI.</p>
+            <a class="btn btn-sm" href="https://adeyinka-meduoye.github.io/all-round-clock/" target="_blank" rel="noopener">Check Project</a>
+          </article>
+
+          <article class="project">
+            <img src="image/password.PNG" alt="Password generator screenshot" loading="lazy">
+            <h4>Password Generator</h4>
+            <p>Quick strong password generator for secure accounts.</p>
+            <a class="btn btn-sm" href="https://adeyinka-meduoye.github.io/password_generator/" target="_blank" rel="noopener">Check Project</a>
+          </article>
+
+          <article class="project">
+            <img src="image/quiz.PNG" alt="Quiz portal screenshot" loading="lazy">
+            <h4>Quiz Portal</h4>
+            <p>Engaging quiz UI built for learning and quick testing.</p>
+            <a class="btn btn-sm" href="https://adeyinka-meduoye.github.io/online-quiz-portal/" target="_blank" rel="noopener">Check Project</a>
+          </article>
+
+          <article class="project">
+            <img src="image/moving-car.PNG" alt="Moving car animation screenshot" loading="lazy">
+            <h4>Moving Car</h4>
+            <p>Animated project demonstrating JS animation concepts.</p>
+            <a class="btn btn-sm" href="https://adeyinka-meduoye.github.io/moving-car/" target="_blank" rel="noopener">Check Project</a>
+          </article>
+
+          <article class="project">
+            <img src="image/youtube.PNG" alt="YouTube clone screenshot" loading="lazy">
+            <h4>YouTube Clone</h4>
+            <p>A UI clone to practice layout and media streaming patterns.</p>
+            <a class="btn btn-sm" href="https://adeyinka-meduoye.github.io/youtube-clone/" target="_blank" rel="noopener">Check Project</a>
+          </article>
+
+          <article class="project">
+            <img src="image/bouncing-balls.PNG" alt="Bouncing balls screenshot" loading="lazy">
+            <h4>Bouncing Balls</h4>
+            <p>Canvas animation showcase using vanilla JS.</p>
+            <a class="btn btn-sm" href="https://adeyinka-meduoye.github.io/balls-bouncing/" target="_blank" rel="noopener">Check Project</a>
+          </article>
+        </div>
+
+        <p class="center"><a class="btn btn-primary" href="https://github.com/Adeyinka-Meduoye" target="_blank" rel="noopener">View More</a></p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+      <div class="container section-inner">
+        <header class="section-head">
+          <h2>Contact</h2>
+        </header>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p><a href="mailto:yinkopet@gmail.com">yinkopet@gmail.com</a></p>
+            <p><a href="tel:+2348039431704">+234 803 943 1704</a></p>
+            <p><a href="https://wa.me/2348185546555" target="_blank" rel="noopener">WhatsApp</a></p>
+            <p><a href="https://github.com/Adeyinka-Meduoye" target="_blank" rel="noopener">GitHub</a></p>
+            <p><a href="https://www.linkedin.com/in/adeyinka-meduoye-56848b184/" target="_blank" rel="noopener">LinkedIn</a></p>
+          </div>
+
+          <form id="contact-form" class="contact-form" novalidate>
+            <fieldset>
+              <legend>Send me a message</legend>
+
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your full name" required />
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@domain.com" required />
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" placeholder="Type your message..." required></textarea>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Send</button>
+                <button type="reset" class="btn btn-muted">Reset</button>
+              </div>
+
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> All Rights Reserved</p>
+      <p>Designed &amp; Developed by <strong>Adeyinka Meduoye</strong></p>
     </div>
-    <div class="close-about">&lt;/About&gt;</div>
-  </section>
-  <hr>
+  </footer>
 
-  <!-- Services -->
-  <section class="service-section" id="service-section">
-    <div class="open-service">&lt;Services&gt;</div>
-    <div class="service-div">
-      <div class="service-webdesign">
-        <img src="image/mobile.png" alt="Mobile App Development"/>
-        <h3>Mobile App Development</h3>
-      </div>
-      <div class="service-digital">
-        <img src="image/webdesign.png" alt="Web Design & Development"/>
-        <h3>Web Design & Development</h3>
-      </div>
-      <div class="service-content">
-        <img src="image/brand.png" alt="Brand Design & Strategy"/>
-        <h3>Brand Design & Strategy</h3>
-      </div>
-      <div class="service-digital-marketing">
-        <img src="image/digitalmarketing.png" alt="Digital Marketing"/>
-        <h3>Digital Marketing</h3>
-      </div>
-    </div>
-    <div class="close-service">&lt;/Services&gt;</div>
-  </section>
-  <hr>
+  <!-- Toast / Notifications -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-  <!-- Portfolio -->
-  <section class="portfolio-section" id="portfolio-section">
-    <div class="open-portfolio">&lt;Portfolio&gt;</div>
-    <div class="portfolio-first-div">
-      <div class="clock">
-        <img src="image/clock.PNG" alt="clock" />
-        <p>
-          All-round digital and analog clock with dark/light theme toggle and sleek UI.
-        </p>
-        <a class="main-button" href="https://adeyinka-meduoye.github.io/all-round-clock/">Check Project</a>
-      </div>
-      <div class="password">
-        <img src="image/password.PNG" alt="password" />
-        <p>Quick strong password generator for secure accounts.</p>
-        <a class="main-button" href="https://adeyinka-meduoye.github.io/password_generator/">Check Project</a>
-      </div>
-      <div class="quiz">
-        <img src="image/quiz.PNG" alt="quiz" />
-        <p>Fun educational quiz platform for bookworms.</p>
-        <a class="main-button" href="https://adeyinka-meduoye.github.io/online-quiz-portal/">Check Project</a>
-      </div>
-    </div>
-    <div class="view-more">
-      <a class="main-button" href="https://github.com/Adeyinka-Meduoye">View More</a>
-    </div>
-    <div class="close-portfolio">&lt;/Portfolio&gt;</div>
-  </section>
-  <hr>
-
-  <!-- Contact -->
-  <section class="contact-section" id="contact-section">
-    <div class="open-contact">&lt;/Contact Me&gt;</div>
-    <div class="contact-div">
-      <div class="contact-first-div">
-        <a href="mailto:yinkopet@gmail.com">Email Me</a> <br><br>
-        <a href="tel:+2348039431704">Call Me</a> <br><br>
-        <a href="https://wa.me/+2348185546555">WhatsApp Me</a> <br><br>
-        <a href="https://github.com/Adeyinka-Meduoye">GitHub</a> <br><br>
-        <a href="https://www.linkedin.com/in/adeyinka-meduoye-56848b184/">LinkedIn</a>
-      </div>
-      <div class="contact-second-div">
-        <form id="form">
-          <fieldset>
-            <legend>Send Me A Message</legend>
-            <div>
-              <label for="name">Name</label><br>
-              <input type="text" id="name" name="name" placeholder="type your fullname" required>
-            </div>
-            <div>
-              <label for="email">Email</label><br>
-              <input type="email" id="email" name="email" placeholder="type your email" required>
-            </div>
-            <div>
-              <label for="message">Message</label><br>
-              <textarea id="message" name="message" placeholder="type your message here" required></textarea>
-            </div>
-            <div id="btn-row">
-              <button type="submit" id="send">Send</button>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-    </div>
-    <div class="close-contact">&lt;/Contact Me&gt;</div>
-  </section>
-
-</main>
-
-<hr>
-
-<footer>
-  <div class="footer">
-    <p>&copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved </p>
-    <p>Designed & Developed by Adeyinka Meduoye</p>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script src="script.js"></script>
-
+  <!-- Scripts -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
