@@ -312,6 +312,18 @@ body {
   .projects-grid{ grid-template-columns: 1fr; }
   .services-grid{ grid-template-columns: 1fr; }
 }
+@media (max-width: 768px) {
+  .home-div {
+    flex-direction: column;
+  }
+  .home-passport {
+    order: 1;
+  }
+  .home-description {
+    order: 2;
+  }
+}
 
 /* Small JS state classes */
 .nav-open .primary-nav { display:block; position:absolute; inset:64px 8px auto 8px; background:var(--bg); border-radius:10px; padding:1rem; box-shadow:var(--shadow); }
+
