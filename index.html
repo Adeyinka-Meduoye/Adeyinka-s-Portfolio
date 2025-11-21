@@ -1,307 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Adeyinka Meduoye - Front-End Engineer & Brand Specialist Portfolio" />
-    <meta
-      name="keywords"
-      content="Adeyinka, Adeyinka Meduoye, Front-End Web Developer, Web Design, Software Developer, Digital Marketing, ReactJS, Bootstrap"
-    />
-    <title>Adeyinka's Portfolio | Front-End Engineer</title>
-    <link rel="icon" href="image/passport.png" type="image/png" /> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500;700&display=swap" rel="stylesheet">
-    
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    
-    <header class="header-section">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#home-section">👨‍💻 Adeyinka</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#home-section">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#about-section">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#service-section">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#portfolio-section">Portfolio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact-section">Contact</a>
-              </li>
-            </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adeyinka - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme"> <!-- Default to dark theme -->
+
+    <!-- Header Section (Fixed Navbar) -->
+    <header class="header-section shadow-lg">
+        <nav class="navbar navbar-expand-lg py-3 container">
+            <a class="navbar-brand" href="#home">Adeyinka.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="btn btn-sm ms-lg-3 theme-toggle" aria-label="Toggle theme">
+                    <i id="theme-icon" class="fas fa-sun"></i>
+                </button>
             </div>
-        </div>
-      </nav>
+        </nav>
     </header>
-    
+
+    <!-- Main Content -->
     <main>
-
-      <section class="home-section" id="home-section">
-        <div class="home-div container"> <div class="home-passport">
-            <img src="image/passport.png" alt="Adeyinka Meduoye professional portrait" loading="lazy" /> 
-            </div>
-          <div class="home-description">
-            <h1 class="home-name">Adeyinka Meduoye</h1>
-            <p class="home-profile">Is a <span class="typing-effect-text"></span></p> 
-            <a href="#portfolio-section" class="home-button btn btn-primary">View Portfolio</a> 
-            </div>
-        </div>
-      </section>
-      <section class="about-section pt-5 pb-5" id="about-section">
-        <div class="container">
-          <h2 class="text-center mb-5">&lt;About /&gt;</h2> <div class="row about-div">
-            <div class="col-md-7 about-description"> <p>
-                Adeyinka is a **Front-End Engineer**, Digital Marketing
-                Specialist, and Full Stack Brand Specialist who supports a diverse portfolio of 
-                public and private sector projects with
-                product development, web design & development, brand strategy and design, strategic communications, 
-                and human-centered design. While he loves bringing his design to life via codes, 
-                Leadership, Technology, Public Policy, and Entrepreneurship drive him.
-              </p>
-              <div class="social-links mt-4">
-                <a href="https://www.linkedin.com/in/adeyinka-meduoye-56848b184/" aria-label="LinkedIn profile">
-                  <i class="fa fa-linkedin-square social-icon"></i>
-                </a>
-                <a href="https://github.com/Adeyinka-Meduoye" aria-label="GitHub profile">
-                  <i class="fa fa-github-square social-icon"></i>
-                </a>
-                <a href="https://web.facebook.com/medus4real" aria-label="Facebook profile">
-                  <i class="fa fa-facebook-square social-icon"></i>
-                </a>
-                <a href="https://twitter.com/IamMedus" aria-label="Twitter profile">
-                  <i class="fa fa-twitter-square social-icon"></i>
-                </a>
-              </div>
-            </div>
-            <div class="col-md-5 about-skills">
-              <h3 class="about-skills-heading">Technical Skills</h3> <ul>
-                <li>HTML/HTML5</li>
-                <li>CSS/CSS3</li>
-                <li>JavaScript (ES6+)</li> <li>Bootstrap</li>
-                <li>ReactJS</li>
-                <li>WordPress/Webflow</li>
-                <li>Digital Marketing</li>
-                <li>Git/GitHub</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="service-section pt-5 pb-5 bg-light" id="service-section">
-        <div class="container">
-          <h2 class="text-center mb-5">&lt;Services /&gt;</h2>
-          <div class="row service-div text-center">
-            
-            <div class="col-md-4 service-item">
-              <img src="image/webdesign.png" alt="Web Design and Development icon" loading="lazy" class="service-img" />
-              <h3 class="mt-3">Web Design & Development</h3>
-            </div>
-            
-            <div class="col-md-4 service-item">
-              <img src="image/digitalmarketing.png" alt="Digital Marketing icon" loading="lazy" class="service-img" />
-              <h3 class="mt-3">Digital Marketing</h3>
-            </div>
-            
-            <div class="col-md-4 service-item">
-              <img src="image/contentcreation.png" alt="Content Creation and Development icon" loading="lazy" class="service-img" />
-              <h3 class="mt-3">Content Creation & Development</h3>
-            </div>
-            
-          </div>
-        </div>
-      </section>
-
-      <section class="portfolio-section pt-5 pb-5" id="portfolio-section">
-        <div class="container">
-          <h2 class="text-center mb-5">&lt;Portfolio /&gt;</h2>
-          <div class="row g-4"> <div class="col-lg-4 col-md-6 portfolio-item clock">
-              <img src="image/clock.PNG" alt="Screenshot of the All-Round Clock project" loading="lazy" class="img-fluid" />
-              <h4 class="mt-3">All-Round Clock</h4> <p>
-                Here is an all-round (digital and analog) clock that comes with a good user interface - 
-                the dark and light theme change, which can be used as a default desktop screen theme if you want.
-              </p>
-              <a
-                class="main-button btn btn-outline-primary"
-                href="https://adeyinka-meduoye.github.io/all-round-clock/"
-                target="_blank"
-                >Check Project</a
-              >
-            </div>
-            
-            <div class="col-lg-4 col-md-6 portfolio-item password">
-              <img src="image/password.PNG" alt="Screenshot of the Password Generator project" loading="lazy" class="img-fluid" />
-              <h4 class="mt-3">Password Generator</h4>
-              <p>
-                Looking for a quick way to generate a strong password for your new account?
-                This simple though reliable password generator gives you the edge in that arena.
-              </p>
-              <a
-                class="main-button btn btn-outline-primary"
-                href="https://adeyinka-meduoye.github.io/password_generator/"
-                target="_blank"
-                >Check Project</a
-              >
-            </div>
-            
-            <div class="col-lg-4 col-md-6 portfolio-item quiz">
-              <img src="image/quiz.PNG" alt="Screenshot of the Online Quiz Portal project" loading="lazy" class="img-fluid" />
-              <h4 class="mt-3">Online Quiz Portal</h4>
-              <p>
-                For the bookworm looking to grasp fundamental knowledge on the educational front, 
-                this quiz is a good and sure way to catch some fun and of course, some knowledge. 
-              </p>
-              <a
-                class="main-button btn btn-outline-primary"
-                href="https://adeyinka-meduoye.github.io/online-quiz-portal/"
-                target="_blank"
-                >Check Project</a
-              >
-            </div>
-            
-            <div class="col-lg-4 col-md-6 portfolio-item moving-car">
-              <img src="image/moving-car.PNG" alt="Screenshot of the Moving Car animation project" loading="lazy" class="img-fluid" />
-              <h4 class="mt-3">Moving Car Animation</h4>
-              <p>
-                Do you like to ride? Or do you love staying behind the wheel? Here is an A-grade saloon that gives the 
-                leverage to enjoy the smoothness of the tech highway without losing touch with reality!
-              </p>
-              <a
-                class="main-button btn btn-outline-primary"
-                href="https://adeyinka-meduoye.github.io/moving-car/"
-                target="_blank"
-                >Check Project</a
-              >
-            </div>
-            
-            <div class="col-lg-4 col-md-6 portfolio-item youtube">
-              <img src="image/youtube.PNG" alt="Screenshot of the YouTube Clone project" loading="lazy" class="img-fluid" />
-              <h4 class="mt-3">YouTube Clone</h4>
-              <p>
-                That fateful day was a boring one, so, I thought I could leverage my time to clone the popular Google video 
-                platform - YouTube - with some streams to feel in the user interface. 
-              </p>
-              <a
-                class="main-button btn btn-outline-primary"
-                href="https://adeyinka-meduoye.github.io/youtube-clone/"
-                target="_blank"
-                >Check Project</a
-              >
-            </div>
-            
-            <div class="col-lg-4 col-md-6 portfolio-item bouncing-balls">
-              <img src="image/bouncing-balls.PNG" alt="Screenshot of the Bouncing Balls animation project" loading="lazy" class="img-fluid" />
-              <h4 class="mt-3">Bouncing Balls Animation</h4>
-              <p>
-                JavaScript might be cumbersome and tricky for most techies but it comes with some tweaks to design and 
-                develop a project like the bouncing balls. Ready to feed your eyes! See this. 
-              </p>
-              <a
-                class="main-button btn btn-outline-primary"
-                href="https://adeyinka-meduoye.github.io/balls-bouncing/"
-                target="_blank"
-                >Check Project</a
-              >
-            </div>
-            
-          </div>
-          
-          <div class="text-center mt-5">
-            <a
-              class="main-button btn btn-primary btn-lg"
-              href="https://github.com/Adeyinka-Meduoye"
-              target="_blank"
-              >View More Projects on GitHub</a
-            >
-          </div>
-        </div>
-      </section>
-
-      <section class="contact-section pt-5 pb-5 bg-light" id="contact-section">
-        <div class="container">
-          <h2 class="text-center mb-5">&lt;Contact Me /&gt;</h2>
-          <div class="row contact-div">
-            <div class="col-md-6 contact-first-div">
-              <p><a href="mailto:yinkopet@gmail.com">Email Me: yinkopet@gmail.com</a></p>
-              <p><a href="tel:+2348039431704">Call Me: +234 803 943 1704</a></p>
-              <p><a href="https://wa.me/+2348185546555" target="_blank">WhatsApp Me</a></p>
-              <p><a href="https://github.com/Adeyinka-Meduoye" target="_blank">GitHub Profile</a></p>
-              <p><a href="https://www.linkedin.com/in/adeyinka-meduoye-56848b184/" target="_blank">LinkedIn Profile</a></p>
-            </div>
-            <div class="col-md-6 contact-second-div">
-              <form id="contact-form"> <fieldset>
-                  <legend class="h4">Send Me A Message</legend> <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Type your full name" required >
-                  </div>
-                  
-                  <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Type your email" required > 
-                  </div>
-                  
-                  <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea id="message" name="message" class="form-control" placeholder="Type your message here" rows="5" required ></textarea>
-                  </div>
-                  
-                  <div class="text-center">
-                    <button type="submit" id="send" class="btn btn-primary btn-lg">Send Message</button> 
+        <!-- Home Section -->
+        <section id="home" class="home-section d-flex align-items-center">
+            <div class="container home-div">
+                <div class="row align-items-center justify-content-center text-center py-5">
+                    <!-- Description Column -->
+                    <div class="col-lg-6 home-description order-lg-1 order-2 mt-5 mt-lg-0">
+                        <p class="mb-2 fs-5">HELLO, I'M</p>
+                        <h1 class="home-name display-4 fw-bold mb-3">Adeyinka Olawale</h1>
+                        <p class="home-profile fs-4 mb-4">Is a <span class="typing-effect-text"></span></p>
+                        <a href="#contact" class="btn btn-primary btn-lg home-button me-3">Hire Me</a>
+                        <a href="#portfolio" class="btn btn-outline-primary btn-lg home-button">View Portfolio</a>
+                        <div class="mt-4">
+                            <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin social-icon"></i></a>
+                            <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter social-icon"></i></a>
+                            <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github social-icon"></i></a>
+                        </div>
                     </div>
-                </fieldset>
-              </form> 
+                    <!-- Passport/Image Column -->
+                    <div class="col-lg-4 home-passport order-lg-2 order-1">
+                        <img src="https://placehold.co/400x400/252525/ffffff?text=Profile+Image" class="img-fluid shadow-lg" alt="Profile Picture">
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="text-center display-5 fw-bold mb-5">About Me</h2>
+                <div class="row about-div justify-content-center align-items-start py-5">
+                    <!-- About Description Column -->
+                    <div class="col-lg-6 about-description mb-4 mb-lg-0">
+                        <h3 class="fw-bold mb-3 text-white">Profile</h3>
+                        <p>Adeyinka is a mobile app developer, front-end engineer, digital marketing specialist, and full-stack brand specialist who supports a diverse portfolio of public and private sector projects in mobile app development, web development, brand strategy and design, strategic communications, and human-centred design. He is driven by leadership, technology, entrepreneurship, and public policy. He utilises his diverse skill set, innovative mindset, and demonstrated leadership experiences to drive meaningful change and achieve excellence in whatever he does.</p>
+                        <a href="resume.pdf" class="btn btn-primary mt-3" download>Download CV</a>
+                    </div>
+                    <!-- Skills Column -->
+                    <div class="col-lg-4 about-skills">
+                        <h3 class="fw-bold mb-3 text-white">Technical Skills</h3>
+                        <ul>
+                            <li>• Product Strategy & Innovation</li>
+                            <li>• AI-Driven Solution Design</li>
+                            <li>• Front-End Engineering (HTML, CSS, JS, React)</li>
+                            <li>• Mobile Development (Flutter)</li>
+                            <li>• Web Development (WordPress, Webflow)</li>
+                            <li>• Digital Marketing & Analytics</li>
+                            <li>• Brand Strategy & Storytelling</li>
+                            <li>• Leadership & Organisational Systems</li>
+                            <li>• Project Management</li>
+                            <li>• Public Speaking & Strategic Communication</li>
+                            <li>• Design Thinking & Systems Thinking</li>
+                            <li>• Research & Data Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Section -->
+        <section id="services" class="service-section">
+            <div class="container">
+                <h2 class="text-center display-5 fw-bold mb-5">Services</h2>
+                <div class="row service-div justify-content-center text-center py-5">
+                    
+                    <!-- Service Card 1: Mobile App Development -->
+                    <div class="col-lg-3 col-md-5 service-item hover-card mb-4">
+                        <i class="fas fa-mobile-alt fa-3x mb-3 text-white"></i>
+                        <h3 class="fw-bold mb-2">Mobile App Development</h3>
+                        <p>Building high-performance, cross-platform mobile applications using modern frameworks like Flutter for both iOS and Android platforms.</p>
+                    </div>
+                    
+                    <!-- Service Card 2: Web Design & Development -->
+                    <div class="col-lg-3 col-md-5 service-item hover-card mb-4">
+                        <i class="fas fa-laptop-code fa-3x mb-3 text-white"></i>
+                        <h3 class="fw-bold mb-2">Web Design & Development</h3>
+                        <p>Crafting responsive, visually appealing, and scalable web solutions, from custom front-end builds to full-stack web platforms using various technologies.</p>
+                    </div>
+
+                    <!-- Service Card 3: Brand Design & Strategy -->
+                    <div class="col-lg-3 col-md-5 service-item hover-card mb-4">
+                        <i class="fas fa-lightbulb fa-3x mb-3 text-white"></i>
+                        <h3 class="fw-bold mb-2">Brand Design & Strategy</h3>
+                        <p>Developing compelling brand identities, strategic narratives, and visual assets that resonate with target audiences and drive market positioning.</p>
+                    </div>
+
+                    <!-- Service Card 4: Digital Marketing -->
+                    <div class="col-lg-3 col-md-5 service-item hover-card mb-4">
+                        <i class="fas fa-chart-line fa-3x mb-3 text-white"></i>
+                        <h3 class="fw-bold mb-2">Digital Marketing</h3>
+                        <p>Implementing data-driven digital marketing campaigns, SEO strategies, and content initiatives to maximize online visibility and conversion rates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio-section">
+            <div class="container">
+                <h2 class="text-center display-5 fw-bold mb-5">Portfolio</h2>
+                <div class="row portfolio-first-div justify-content-center text-center">
+                    
+                    <!-- Portfolio Item 1: Clock -->
+                    <div class="col-lg-4 col-md-6 portfolio-item hover-card mb-4">
+                        <img src="https://placehold.co/400x250/676565/ffffff?text=Digital+Clock" alt="Digital Clock Project" class="img-fluid">
+                        <h4 class="fw-bold text-white">Digital Clock</h4>
+                        <p>A sleek, fully responsive digital clock built with vanilla JavaScript, HTML, and CSS, demonstrating real-time DOM manipulation.</p>
+                        <a href="#" target="_blank" class="btn btn-outline-primary btn-sm main-button">View Project</a>
+                    </div>
+                    
+                    <!-- Portfolio Item 2: Password Generator -->
+                    <div class="col-lg-4 col-md-6 portfolio-item hover-card mb-4">
+                        <img src="https://placehold.co/400x250/676565/ffffff?text=Password+Generator" alt="Password Generator Project" class="img-fluid">
+                        <h4 class="fw-bold text-white">Password Generator</h4>
+                        <p>A utility tool that generates secure, customizable passwords based on user-defined criteria (length, characters, etc.).</p>
+                        <a href="#" target="_blank" class="btn btn-outline-primary btn-sm main-button">View Project</a>
+                    </div>
+                    
+                    <!-- Portfolio Item 3: Quiz App -->
+                    <div class="col-lg-4 col-md-6 portfolio-item hover-card mb-4">
+                        <img src="https://placehold.co/400x250/676565/ffffff?text=Quiz+App" alt="Quiz App Project" class="img-fluid">
+                        <h4 class="fw-bold text-white">Interactive Quiz App</h4>
+                        <p>A fun, multi-choice quiz application developed with dynamic content loading and state management in JavaScript.</p>
+                        <a href="#" target="_blank" class="btn btn-outline-primary btn-sm main-button">View Project</a>
+                    </div>
+                </div>
+
+                <div class="row portfolio-second-div justify-content-center text-center">
+                    
+                    <!-- Portfolio Item 4: Moving Car -->
+                    <div class="col-lg-4 col-md-6 portfolio-item hover-card mb-4">
+                        <img src="https://placehold.co/400x250/676565/ffffff?text=CSS+Animation" alt="Moving Car Animation" class="img-fluid">
+                        <h4 class="fw-bold text-white">CSS Car Animation</h4>
+                        <p>A pure CSS project showcasing complex keyframe animations and transitions to simulate a moving vehicle scene.</p>
+                        <a href="#" target="_blank" class="btn btn-outline-primary btn-sm main-button">View Project</a>
+                    </div>
+                    
+                    <!-- Portfolio Item 5: YouTube Clone -->
+                    <div class="col-lg-4 col-md-6 portfolio-item hover-card mb-4">
+                        <img src="https://placehold.co/400x250/676565/ffffff?text=YouTube+UI+Clone" alt="YouTube Clone Project" class="img-fluid">
+                        <h4 class="fw-bold text-white">YouTube UI Clone</h4>
+                        <p>A static clone of the YouTube user interface, focusing on detailed layout, responsive design, and accurate component placement.</p>
+                        <a href="#" target="_blank" class="btn btn-outline-primary btn-sm main-button">View Project</a>
+                    </div>
+                    
+                    <!-- Portfolio Item 6: Bouncing Balls -->
+                    <div class="col-lg-4 col-md-6 portfolio-item hover-card mb-4">
+                        <img src="https://placehold.co/400x250/676565/ffffff?text=Canvas+Physics" alt="Bouncing Balls Simulation" class="img-fluid">
+                        <h4 class="fw-bold text-white">Bouncing Balls Simulation</h4>
+                        <p>A canvas-based simulation demonstrating basic physics principles like collision detection and elastic rebound.</p>
+                        <a href="#" target="_blank" class="btn btn-outline-primary btn-sm main-button">View Project</a>
+                    </div>
+                </div>
+                <div class="view-more text-center mt-3">
+                    <a href="#" class="btn btn-primary btn-lg main-button">View More Work</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="text-center display-5 fw-bold mb-5">Get In Touch</h2>
+                <div class="row contact-div justify-content-center py-5">
+                    <!-- Contact Info Column -->
+                    <div class="col-lg-5 contact-first-div mb-4 mb-lg-0">
+                        <h3 class="fw-bold text-white mb-4">Contact Information</h3>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Lagos, Nigeria</p>
+                        <p><i class="fas fa-envelope me-2"></i> <a href="mailto:example@domain.com">example@domain.com</a></p>
+                        <p><i class="fas fa-phone me-2"></i> <a href="tel:+1234567890">+1 234 567 890</a></p>
+                        <div class="mt-4">
+                            <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin social-icon"></i></a>
+                            <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter social-icon"></i></a>
+                            <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github social-icon"></i></a>
+                        </div>
+                    </div>
+                    <!-- Contact Form Column -->
+                    <div class="col-lg-6 contact-second-div">
+                        <fieldset>
+                            <legend class="text-center">Send A Message</legend>
+                            <form id="contact-form" class="mt-4">
+                                <!-- Hidden Service & Template IDs for EmailJS -->
+                                <input type="hidden" id="service_id" value="">
+                                <input type="hidden" id="template_id" value="">
+
+                                <div class="mb-3">
+                                    <label for="user_name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="user_name" name="user_name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="user_email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="user_email" name="user_email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" id="send-button" class="btn btn-primary btn-lg mt-3">Send Message</button>
+                                </div>
+                                <div id="form-message" class="mt-3 text-center" role="alert" style="display: none;"></div>
+                            </form>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    
-    <footer class="text-center py-3">
-      <div class="container">
-        <div class="footer">
-          <p>&copy; <span id="current-year"></span> All Rights Reserved </p> 
-          <p>Designed & Developed by Adeyinka Meduoye</p>
-        </div>
-      </div>
+
+    <!-- Footer Section -->
+    <footer class="mt-5 py-4 border-top">
+        <p>&copy; <span id="current-year"></span> Adeyinka Olawale. All Rights Reserved.</p>
+        <p>Built with HTML, CSS, JS & Bootstrap</p>
     </footer>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    ></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
