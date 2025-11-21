@@ -7,16 +7,15 @@
 const form = document.getElementById("contactForm");
 const statusMessage = document.getElementById("form-status");
 
-// 6. EmailJS Configuration - Initialize right away
+// EmailJS Configuration - Initialize with Public Key
 (function() {
-    // IMPORTANT: Double-check this Public Key in your EmailJS dashboard
     emailjs.init("x2jZLRL7ng_aEHqG9"); 
     console.log("EmailJS Initialized.");
 })();
 
 
 /**
- * 1. EmailJS: Handles form submission logic to send email.
+ * Handles form submission logic to send email via EmailJS.
  * @param {Event} event - The form submission event.
  */
 const handleFormSubmission = async (event) => {
@@ -26,14 +25,14 @@ const handleFormSubmission = async (event) => {
     statusMessage.textContent = 'Sending...';
     statusMessage.className = 'mt-3 text-center text-info';
     
-    // IMPORTANT: Using the confirmed IDs from your request
+    // CONFIRMED CREDENTIALS
     const serviceID = "service_fordfmq"; 
-    const templateID = "template_s2mp6xv";
+    const templateID = "template_3z33dn4"; // <-- CORRECTED TEMPLATE ID
 
     try {
         console.log(`Attempting to send using Service: ${serviceID}, Template: ${templateID}`);
         
-        // This is the correct asynchronous send function
+        // Send the form data
         const result = await emailjs.sendForm(serviceID, templateID, form);
         
         console.log('SUCCESS!', result.status, result.text);
@@ -44,8 +43,6 @@ const handleFormSubmission = async (event) => {
         form.reset(); // Clear the form fields after successful submission
 
     } catch (error) {
-        // If this block is hit, there is usually an issue with the Service ID, Template ID, 
-        // the public key, or network connectivity.
         console.error('FAILED...', error);
         
         statusMessage.textContent = '❌ Failed to send message. Please try again or use the links provided.';
