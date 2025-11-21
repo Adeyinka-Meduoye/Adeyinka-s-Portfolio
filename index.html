@@ -1,206 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Adeyinka Meduoye Portfolio" />
-    <meta
-      name="keywords"
-      content="Adeyinka, Adeyinka Meduoye, Front-End Web Developer, Web Design, Software Developer, Mobile App Developer"
-    />
-    <title>Adeyinka's Portfolio</title>
-    <link rel="shortcut icon" href="image/passport.png" type="image/x-icon" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="header-section">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#home-section">👨‍💻 Adeyinka</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item"><a class="nav-link active" href="#home-section">&lt;Home&gt;</a></li>
-              <li class="nav-item"><a class="nav-link" href="#about-section">&lt;About&gt;</a></li>
-              <li class="nav-item"><a class="nav-link" href="#service-section">&lt;Services&gt;</a></li>
-              <li class="nav-item"><a class="nav-link" href="#portfolio-section">&lt;Portfolio&gt;</a></li>
-              <li class="nav-item"><a class="nav-link" href="#contact-section">&lt;Contact&gt;</a></li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    </header>
-    
-    <main>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Adeyinka Meduoye Portfolio" />
+  <meta name="keywords" content="Adeyinka, Adeyinka Meduoye, Front-End Web Developer, Web Design, Software Developer" />
+  <title>Adeyinka's Portfolio</title>
+  <link rel="shortcut icon" href="image/passport.png" type="image/x-icon" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-mode">
 
-      <!-- Home Section -->
-      <section class="home-section" id="home-section">
-        <div class="open-home">&lt;Home&gt;</div>
-        <div class="home-div">
-          <div class="home-passport">
-            <img src="image/passport.png" alt="Adeyinka's image" />
-          </div>
-          <div class="home-description">
-            <h1 class="home-name">Hi. I'm Adeyinka Meduoye</h1>
-            <p class="home-profile">I'm a <span></span></p>
-            <a href="#portfolio-section" class="home-button">Get in Touch</a>
-          </div>
+<header class="header-section">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#home-section">👨‍💻 Adeyinka</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#home-section">&lt;Home&gt;</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about-section">&lt;About&gt;</a></li>
+          <li class="nav-item"><a class="nav-link" href="#service-section">&lt;Services&gt;</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio-section">&lt;Portfolio&gt;</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact-section">&lt;Contact&gt;</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <button id="mode-toggle">🌙</button>
         </div>
-        <div class="close-home">&lt;/Home&gt;</div>
-      </section>
-      <hr>
-
-      <!-- About Section -->
-      <section class="about-section" id="about-section">
-        <div class="open-about">&lt;About&gt;</div>
-        <div class="about-div">
-          <div class="about-description">
-            <p>
-              Adeyinka is a mobile app developer, front-end engineer, digital marketing specialist, and full-stack brand specialist who supports a diverse portfolio of public and private sector projects in mobile app development, web development, brand strategy and design, strategic communications, and human-centred design. He is driven by leadership, technology, entrepreneurship, and public policy. He utilises his diverse skill set, innovative mindset, and demonstrated leadership experiences to drive meaningful change and achieve excellence in whatever he does.
-            </p>
-            <a href="https://www.linkedin.com/in/adeyinka-meduoye-56848b184/"><i class="fa fa-linkedin-square" style="font-size:36px"></i></a>
-            <a href="https://github.com/Adeyinka-Meduoye"><i class="fa fa-github-square" style="font-size:36px"></i></a>
-            <a href="https://web.facebook.com/medus4real"><i class="fa fa-facebook-square" style="font-size:36px"></i></a>
-            <a href="https://twitter.com/IamMedus"><i class="fa fa-twitter-square" style="font-size:36px"></i></a>
-          </div>
-          <div class="about-skills">
-            <h2 class="about-skills-heading">Technical Skills</h2>
-            <ul>
-              <li>Product Strategy & Innovation</li>
-              <li>AI-Driven Solution Design</li>
-              <li>Front-End Engineering (HTML, CSS, JS, React)</li>
-              <li>Mobile Development (Flutter)</li>
-              <li>Web Development (WordPress, Webflow)</li>
-              <li>Digital Marketing & Analytics</li>
-              <li>Brand Strategy & Storytelling</li>
-              <li>Leadership & Organisational Systems</li>
-              <li>Project Management</li>
-              <li>Public Speaking & Strategic Communication</li>
-              <li>Design Thinking & Systems Thinking</li>
-              <li>Research & Data Analysis</li>
-            </ul>
-          </div>
-        </div>
-        <div class="close-about">&lt;/About&gt;</div>
-      </section>
-      <hr>
-
-      <!-- Services Section -->
-      <section class="service-section" id="service-section">
-        <div class="open-service">&lt;Services&gt;</div>
-        <div class="service-div">
-          <div class="service-webdesign">
-            <img src="image/mobileapp.svg" alt="mobile app development" />
-            <h3 class="webdesign-heading">Mobile App Development</h3>
-          </div>
-          <div class="service-digital">
-            <img src="image/webdesign.png" alt="web development" />
-            <h3 class="digital-heading">Web Design & Development</h3>
-          </div>
-          <div class="service-content">
-            <img src="image/brand.svg" alt="brand design" />
-            <h3 class="content-heading">Brand Design & Strategy</h3>
-          </div>
-          <div class="service-content">
-            <img src="image/digitalmarketing.png" alt="digital marketing" />
-            <h3 class="content-heading">Digital Marketing</h3>
-          </div>
-        </div>
-        <div class="close-service">&lt;/Services&gt;</div>
-      </section>
-      <hr>
-
-      <!-- Portfolio Section -->
-      <section class="portfolio-section" id="portfolio-section">
-        <div class="open-portfolio">&lt;Portfolio&gt;</div>
-        <div class="portfolio-first-div">
-          <!-- Portfolio items... -->
-        </div>
-        <div class="view-more">
-          <a class="main-button" href="https://github.com/Adeyinka-Meduoye">View More</a>
-        </div>
-        <div class="close-portfolio">&lt;/Portfolio&gt;</div>
-      </section>
-      <hr>
-
-      <!-- Contact Section -->
-      <section class="contact-section" id="contact-section">
-        <div class="open-contact">&lt;Contact Me&gt;</div>
-        <div class="contact-div">
-          <div class="contact-first-div">
-            <a href="mailto:yinkopet@gmail.com">Email Me</a> <br><br>
-            <a href="tel:+2348039431704">Call Me</a> <br><br>
-            <a href="https://wa.me/+2348185546555">WhatsApp Me</a> <br><br>
-            <a href="https://github.com/Adeyinka-Meduoye">GitHub</a> <br><br>
-            <a href="https://www.linkedin.com/in/adeyinka-meduoye-56848b184/">LinkedIn</a>
-          </div>
-          <div class="contact-second-div">
-            <form id="form">
-              <fieldset>
-                <legend>Send Me A Message</legend>
-                <div>
-                  <label for="name">Name</label></br>
-                  <input type="text" id="name" name="name" placeholder="type your fullname" required>
-                </div>
-                <div>
-                  <label for="email">Email</label><br>
-                  <input type="email" id="email" pattern="[^ @]*@[^ @]*" name="email" placeholder="type your email" required>
-                </div>
-                <div>
-                  <label for="message">Message</label><br>
-                  <textarea id="message" name="message" placeholder="type your message here" required></textarea>
-                </div>
-                <div id="btn-row">
-                  <div class="btn">
-                      <button type="submit" id="send">Send</button>
-                  </div>
-                </div>
-              </fieldset>
-            </form>
-          </div>
-        </div>
-        <div class="close-contact">&lt;/Contact Me&gt;</div>
-      </section>
-    </main>
-    <hr>
-
-    <footer>
-      <div class="footer">
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</p>
-        <p>Designed & Developed by Adeyinka Meduoye</p>
       </div>
-    </footer>
+    </div>
+  </nav>
+</header>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
-    <script>
-      emailjs.init("x2jZLRL7ng_aEHqG9");
-    </script>
-    <script src="script.js"></script>
-  </body>
+<main>
+
+  <!-- Home -->
+  <section class="home-section" id="home-section">
+    <div class="open-home">&lt;Home&gt;</div>
+    <div class="home-div">
+      <div class="home-passport">
+        <img src="image/passport.png" alt="Adeyinka's image" />
+      </div>
+      <div class="home-description">
+        <h1 class="home-name">Hi. I'm Adeyinka Meduoye</h1>
+        <p class="home-profile">I'm a <span></span></p>
+        <a href="#portfolio-section" class="home-button">View Portfolio</a>
+      </div>
+    </div>
+    <div class="close-home">&lt;/Home&gt;</div>
+  </section>
+  <hr>
+
+  <!-- About -->
+  <section class="about-section" id="about-section">
+    <div class="open-about">&lt;About&gt;</div>
+    <div class="about-div">
+      <div class="about-description">
+        <p>
+          Adeyinka is a mobile app developer, front-end engineer, digital marketing specialist, and full-stack brand specialist who supports a diverse portfolio of public and private sector projects in mobile app development, web development, brand strategy and design, strategic communications, and human-centred design. He is driven by leadership, technology, entrepreneurship, and public policy. He utilises his diverse skill set, innovative mindset, and demonstrated leadership experiences to drive meaningful change and achieve excellence in whatever he does.
+        </p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/adeyinka-meduoye-56848b184/"><i class="fa fa-linkedin-square fa-2x"></i></a>
+          <a href="https://github.com/Adeyinka-Meduoye"><i class="fa fa-github-square fa-2x"></i></a>
+          <a href="https://web.facebook.com/medus4real"><i class="fa fa-facebook-square fa-2x"></i></a>
+          <a href="https://twitter.com/IamMedus"><i class="fa fa-twitter-square fa-2x"></i></a>
+        </div>
+      </div>
+      <div class="about-skills">
+        <h2 class="about-skills-heading">Technical Skills</h2>
+        <ul>
+          <li>Product Strategy & Innovation</li>
+          <li>AI-Driven Solution Design</li>
+          <li>Front-End Engineering (HTML, CSS, JS, React)</li>
+          <li>Mobile Development (Flutter)</li>
+          <li>Web Development (WordPress, Webflow)</li>
+          <li>Digital Marketing & Analytics</li>
+          <li>Brand Strategy & Storytelling</li>
+          <li>Leadership & Organisational Systems</li>
+          <li>Project Management</li>
+          <li>Public Speaking & Strategic Communication</li>
+          <li>Design Thinking & Systems Thinking</li>
+          <li>Research & Data Analysis</li>
+        </ul>
+      </div>
+    </div>
+    <div class="close-about">&lt;/About&gt;</div>
+  </section>
+  <hr>
+
+  <!-- Services -->
+  <section class="service-section" id="service-section">
+    <div class="open-service">&lt;Services&gt;</div>
+    <div class="service-div">
+      <div class="service-webdesign">
+        <img src="image/mobile.png" alt="Mobile App Development"/>
+        <h3>Mobile App Development</h3>
+      </div>
+      <div class="service-digital">
+        <img src="image/webdesign.png" alt="Web Design & Development"/>
+        <h3>Web Design & Development</h3>
+      </div>
+      <div class="service-content">
+        <img src="image/brand.png" alt="Brand Design & Strategy"/>
+        <h3>Brand Design & Strategy</h3>
+      </div>
+      <div class="service-digital-marketing">
+        <img src="image/digitalmarketing.png" alt="Digital Marketing"/>
+        <h3>Digital Marketing</h3>
+      </div>
+    </div>
+    <div class="close-service">&lt;/Services&gt;</div>
+  </section>
+  <hr>
+
+  <!-- Portfolio -->
+  <section class="portfolio-section" id="portfolio-section">
+    <div class="open-portfolio">&lt;Portfolio&gt;</div>
+    <div class="portfolio-first-div">
+      <div class="clock">
+        <img src="image/clock.PNG" alt="clock" />
+        <p>
+          All-round digital and analog clock with dark/light theme toggle and sleek UI.
+        </p>
+        <a class="main-button" href="https://adeyinka-meduoye.github.io/all-round-clock/">Check Project</a>
+      </div>
+      <div class="password">
+        <img src="image/password.PNG" alt="password" />
+        <p>Quick strong password generator for secure accounts.</p>
+        <a class="main-button" href="https://adeyinka-meduoye.github.io/password_generator/">Check Project</a>
+      </div>
+      <div class="quiz">
+        <img src="image/quiz.PNG" alt="quiz" />
+        <p>Fun educational quiz platform for bookworms.</p>
+        <a class="main-button" href="https://adeyinka-meduoye.github.io/online-quiz-portal/">Check Project</a>
+      </div>
+    </div>
+    <div class="view-more">
+      <a class="main-button" href="https://github.com/Adeyinka-Meduoye">View More</a>
+    </div>
+    <div class="close-portfolio">&lt;/Portfolio&gt;</div>
+  </section>
+  <hr>
+
+  <!-- Contact -->
+  <section class="contact-section" id="contact-section">
+    <div class="open-contact">&lt;/Contact Me&gt;</div>
+    <div class="contact-div">
+      <div class="contact-first-div">
+        <a href="mailto:yinkopet@gmail.com">Email Me</a> <br><br>
+        <a href="tel:+2348039431704">Call Me</a> <br><br>
+        <a href="https://wa.me/+2348185546555">WhatsApp Me</a> <br><br>
+        <a href="https://github.com/Adeyinka-Meduoye">GitHub</a> <br><br>
+        <a href="https://www.linkedin.com/in/adeyinka-meduoye-56848b184/">LinkedIn</a>
+      </div>
+      <div class="contact-second-div">
+        <form id="form">
+          <fieldset>
+            <legend>Send Me A Message</legend>
+            <div>
+              <label for="name">Name</label><br>
+              <input type="text" id="name" name="name" placeholder="type your fullname" required>
+            </div>
+            <div>
+              <label for="email">Email</label><br>
+              <input type="email" id="email" name="email" placeholder="type your email" required>
+            </div>
+            <div>
+              <label for="message">Message</label><br>
+              <textarea id="message" name="message" placeholder="type your message here" required></textarea>
+            </div>
+            <div id="btn-row">
+              <button type="submit" id="send">Send</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="close-contact">&lt;/Contact Me&gt;</div>
+  </section>
+
+</main>
+
+<hr>
+
+<footer>
+  <div class="footer">
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved </p>
+    <p>Designed & Developed by Adeyinka Meduoye</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="script.js"></script>
+
+</body>
 </html>
