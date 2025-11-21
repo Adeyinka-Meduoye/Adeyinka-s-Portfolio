@@ -1,6 +1,6 @@
 /**
  * Modern JavaScript for Adeyinka's Portfolio
- * Includes Form Handling (EmailJS) and Theme Toggle.
+ * Includes Form Handling (EmailJS).
  */
 
 // 6. EmailJS Configuration
@@ -11,12 +11,9 @@
 // 1. DOM Element Selection
 const form = document.getElementById("contactForm");
 const statusMessage = document.getElementById("form-status");
-const themeToggle = document.getElementById("theme-toggle");
-const htmlElement = document.documentElement; // Targets the <html> tag
-
 
 /**
- * 6. EmailJS: Handles form submission logic to send email.
+ * EmailJS: Handles form submission logic to send email.
  * @param {Event} event - The form submission event.
  */
 const handleFormSubmission = async (event) => {
@@ -26,7 +23,8 @@ const handleFormSubmission = async (event) => {
     statusMessage.textContent = 'Sending...';
     statusMessage.className = 'mt-3 text-center text-info';
     
-    const serviceID = "service_fordfmr"; // Your Service ID (Corrected typo from ffordfm to fordfmr based on common pattern)
+    // FIX: Corrected Service ID here
+    const serviceID = "service_fordfmq"; // Corrected Service ID
     const templateID = "template_s2mp6xv"; // Your Template ID
 
     try {
@@ -47,54 +45,9 @@ const handleFormSubmission = async (event) => {
     }
 };
 
-/**
- * 5. Theme Toggle: Switches between light and dark themes.
- */
-const toggleTheme = () => {
-    // Get the current theme from the data-bs-theme attribute on the <html> element
-    const currentTheme = htmlElement.getAttribute('data-bs-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    // Set the new theme
-    htmlElement.setAttribute('data-bs-theme', newTheme);
-    
-    // Update the button icon
-    const icon = themeToggle.querySelector('i');
-    if (newTheme === 'light') {
-        icon.className = 'fa fa-moon-o'; // Moon icon for dark mode prompt
-        themeToggle.setAttribute('aria-label', 'Toggle dark theme');
-    } else {
-        icon.className = 'fa fa-sun-o'; // Sun icon for light mode prompt
-        themeToggle.setAttribute('aria-label', 'Toggle light theme');
-    }
-    
-    // Optional: Save preference to localStorage
-    localStorage.setItem('theme', newTheme);
-};
-
-/**
- * Applies saved theme preference on page load.
- */
-const loadTheme = () => {
-    // Check localStorage for saved theme, default to 'dark'
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    htmlElement.setAttribute('data-bs-theme', savedTheme);
-    
-    // Update icon on load
-    const icon = themeToggle.querySelector('i');
-    if (savedTheme === 'light') {
-        icon.className = 'fa fa-moon-o';
-    } else {
-        icon.className = 'fa fa-sun-o';
-    }
-};
-
 
 // 2. Event Listeners (Run after DOM is fully loaded)
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Load saved theme immediately
-    loadTheme();
     
     if (form) {
         form.addEventListener("submit", handleFormSubmission);
@@ -102,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Contact form element not found. Check the ID 'contactForm'.");
     }
     
-    if (themeToggle) {
-        themeToggle.addEventListener("click", toggleTheme);
-    }
+    // Simple script to set the current year in the footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
 });
