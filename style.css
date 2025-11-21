@@ -1,4 +1,4 @@
-/* Reset */
+/* Global */
 * {
   margin: 0;
   padding: 0;
@@ -11,39 +11,35 @@ html {
 
 body {
   background-color: #252525;
-  color: #dcdcdc; /* Light color for dark mode readability */
+  color: #dcdcdc;
   font-family: "Poppins", sans-serif;
 }
 
-/* Header Section */
-.header-section {
-  position: fixed;
-  color: #dcdcdc;
-  background-color: rgba(37, 37, 37, 0.85);
-  width: 100%;
-  z-index: 50;
-  backdrop-filter: blur(10px);
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: #ffffff;
 }
 
-body a:hover {
-  color: #ffffff;
+/* Header */
+.header-section {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: #252525;
+  backdrop-filter: blur(10px);
 }
 
 /* Home Section */
 .home-section {
-  background-image: url(image/background.png);
+  background-image: url("image/background.png");
   background-size: cover;
-  background-repeat: no-repeat;
-  height: fit-content;
-  width: 100%;
   padding-top: 100px;
-}
-
-.open-home,
-.close-home {
   text-align: center;
-  color: #dcdcdc;
-  font-size: 50px;
 }
 
 .home-div {
@@ -52,19 +48,18 @@ body a:hover {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  text-align: center;
   padding: 50px 20px;
 }
 
 .home-passport {
-  width: 300px;
+  width: 250px;
   margin: 10px;
-  order: -1; /* Ensure image appears first on mobile */
 }
 
 .home-passport img {
+  width: 100%;
   border-radius: 50%;
-  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.25s ease-in-out;
 }
 
 .home-passport:hover {
@@ -72,31 +67,42 @@ body a:hover {
 }
 
 .home-description {
-  color: #f5f5f5;
-  width: 400px;
+  max-width: 500px;
   margin: 10px;
+  text-align: left;
+  color: #f0f0f0; /* Light color for dark mode readability */
 }
 
 .home-name {
-  font-size: 2.5rem;
-  text-shadow: 2px 2px 8px #676565;
+  font-size: 2em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px #000000;
 }
 
-.home-profile span {
+.home-profile span::before {
+  content: "Front-End Engineer";
   color: lightblue;
-  font-size: 20px;
+  font-size: 18px;
+  animation: change-text 5s infinite;
+}
+
+@keyframes change-text {
+  25% { content: "Digital Marketing Specialist"; }
+  50% { content: "Full Stack Brand Specialist"; }
+  75% { content: "Mobile App Developer"; }
 }
 
 .home-button {
-  color: lightgoldenrodyellow;
+  display: inline-block;
+  margin-top: 15px;
   padding: 10px 20px;
-  font-size: 17px;
+  font-size: 16px;
   background-color: #252525;
-  cursor: pointer;
+  color: lightgoldenrodyellow;
   border: none;
   border-radius: 5px;
-  margin-top: 20px;
-  transition: 0.4s;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .home-button:hover {
@@ -105,15 +111,7 @@ body a:hover {
 
 /* About Section */
 .about-section {
-  width: 100%;
-  padding-top: 40px;
-}
-
-.open-about,
-.close-about {
-  text-align: center;
-  color: #dcdcdc;
-  font-size: 50px;
+  padding: 50px 20px;
 }
 
 .about-div {
@@ -121,69 +119,37 @@ body a:hover {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: flex-start;
-  padding: 50px 20px;
 }
 
-.about-description {
-  color: #bdbdbd;
-  width: 400px;
-  margin: 10px;
-}
-
+.about-description,
 .about-skills {
-  color: #bdbdbd;
-  width: 400px;
+  max-width: 450px;
   margin: 10px;
+  color: #bdbdbd;
 }
 
-ul {
-  list-style: none;
-}
-
-ul li {
-  margin-bottom: 8px;
-  position: relative;
-  padding-left: 15px;
-}
-
-ul li::before {
-  content: "•";
-  color: lightblue;
-  position: absolute;
-  left: 0;
+.about-skills ul {
+  list-style-type: disc;
+  padding-left: 20px;
 }
 
 /* Service Section */
 .service-section {
-  width: 100%;
-  padding-top: 40px;
-}
-
-.open-service,
-.close-service {
+  padding: 50px 20px;
   text-align: center;
-  color: #dcdcdc;
-  font-size: 50px;
 }
 
 .service-div {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  text-align: center;
-  padding: 50px 20px;
 }
 
 .service-item {
+  width: 200px;
+  margin: 20px;
   color: #bdbdbd;
-  width: 300px;
-  margin: 10px;
-  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.service-item:hover {
-  transform: scale(1.05);
+  transition: transform 0.25s ease-in-out;
 }
 
 .service-item svg {
@@ -193,22 +159,19 @@ ul li::before {
   fill: lightblue;
 }
 
-h3 {
-  font-size: 20px;
-  margin-top: 10px;
+.service-item:hover {
+  transform: scale(1.05);
+}
+
+.service-item h3 {
+  margin-top: 5px;
+  font-size: 18px;
 }
 
 /* Portfolio Section */
 .portfolio-section {
-  width: 100%;
-  padding-top: 40px;
-}
-
-.open-portfolio,
-.close-portfolio {
+  padding: 50px 20px;
   text-align: center;
-  color: #dcdcdc;
-  font-size: 50px;
 }
 
 .portfolio-first-div,
@@ -216,35 +179,36 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 50px 20px;
 }
 
 .portfolio-item {
+  width: 250px;
+  margin: 20px;
   color: #bdbdbd;
-  width: 300px;
-  margin: 10px;
   text-align: center;
-  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.portfolio-item:hover {
-  transform: scale(1.05);
 }
 
 .portfolio-item img {
   width: 100%;
   border-radius: 10px;
+  transition: transform 0.25s ease-in-out;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05);
 }
 
 .main-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  font-size: 15px;
   color: lightblue;
   background-color: #252525;
-  font-size: 17px;
-  padding: 10px 20px;
-  cursor: pointer;
   border: 1px solid #676565;
-  margin-top: 10px;
-  transition: 0.4s;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .main-button:hover {
@@ -253,110 +217,85 @@ h3 {
 }
 
 .view-more {
-  text-align: center;
-  margin-bottom: 40px;
+  margin-top: 20px;
 }
 
 /* Contact Section */
 .contact-section {
-  width: 100%;
-  padding-top: 40px;
-}
-
-.open-contact,
-.close-contact {
-  text-align: center;
-  color: #dcdcdc;
-  font-size: 50px;
+  padding: 50px 20px;
 }
 
 .contact-div {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 50px 20px;
+  justify-content: center;
 }
 
 .contact-first-div,
 .contact-second-div {
-  color: #bdbdbd;
-  width: 300px;
+  max-width: 400px;
   margin: 10px;
+  color: #bdbdbd;
   text-align: center;
 }
 
-.contact-second-div input,
-.contact-second-div textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  background-color: #1a1a1a;
+#form fieldset {
   border: 1px solid #676565;
   border-radius: 5px;
-  color: #f5f5f5;
+  padding: 20px;
 }
 
-.contact-second-div button {
-  color: lightgoldenrodyellow;
-  padding: 10px 20px;
+#form input, #form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #676565;
   background-color: #252525;
+  color: #f0f0f0;
+}
+
+#form button {
+  padding: 8px 15px;
+  font-size: 15px;
+  background-color: #252525;
+  color: lightgoldenrodyellow;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.4s;
+  transition: 0.3s;
 }
 
-.contact-second-div button:hover {
+#form button:hover {
   color: lightblue;
 }
 
-/* Footer Section */
+/* Footer */
 footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
   padding: 20px;
   color: #bdbdbd;
-  border-top: 1px solid #676565;
 }
 
-/* Toast Messages */
-.toast-message {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 15px 25px;
-  border-radius: 5px;
-  background-color: #333;
-  color: #fff;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  z-index: 1000;
-}
-
-.toast-message.success {
-  background-color: green;
-}
-
-.toast-message.error {
-  background-color: red;
-}
-
-/* Responsive Adjustments */
+/* Responsive */
 @media (max-width: 768px) {
-  .home-div,
-  .about-div,
-  .service-div,
-  .portfolio-first-div,
-  .portfolio-second-div,
-  .contact-div {
+  .home-div {
     flex-direction: column;
+    align-items: center;
   }
 
   .home-passport {
-    order: -1; /* Ensure image appears first */
+    order: -1; /* Picture first on mobile */
+  }
+
+  .about-div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-div, .portfolio-first-div, .portfolio-second-div {
+    flex-direction: column;
+    align-items: center;
   }
 }
