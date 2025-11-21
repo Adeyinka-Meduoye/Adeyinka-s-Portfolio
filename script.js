@@ -1,78 +1,108 @@
 /**
  * Modern JavaScript for Adeyinka's Portfolio
- * Focuses on form handling, validation, and performance.
+ * Includes Form Handling (EmailJS) and Theme Toggle.
  */
 
-// 1. DOM Element Selection using modern practices
-const form = document.getElementById("contactForm"); // Changed ID to match HTML refactor
-const sendButton = document.getElementById("sendBtn"); // Changed ID to match HTML refactor
-// Removed 'resetButton' as it wasn't present or used in the HTML
+// 6. EmailJS Configuration
+(function() {
+    emailjs.init("x2jZLRL7ng_aEHqG9"); // Your Public Key
+})();
+
+// 1. DOM Element Selection
+const form = document.getElementById("contactForm");
+const statusMessage = document.getElementById("form-status");
+const themeToggle = document.getElementById("theme-toggle");
+const htmlElement = document.documentElement; // Targets the <html> tag
+
 
 /**
- * Handle form submission logic.
+ * 6. EmailJS: Handles form submission logic to send email.
  * @param {Event} event - The form submission event.
  */
-const handleFormSubmission = (event) => {
-    // Prevent the default browser form submission (which reloads the page)
+const handleFormSubmission = async (event) => {
     event.preventDefault();
 
-    // Get input values directly from the form elements
-    const nameInput = document.getElementById("name");
-    const emailInput = document.getElementById("email");
-    const messageInput = document.getElementById("message");
+    // Reset status message
+    statusMessage.textContent = 'Sending...';
+    statusMessage.className = 'mt-3 text-center text-info';
+    
+    const serviceID = "service_fordfmr"; // Your Service ID (Corrected typo from ffordfm to fordfmr based on common pattern)
+    const templateID = "template_s2mp6xv"; // Your Template ID
 
-    const name = nameInput.value.trim();
-    const email = emailInput.value.trim();
-    const message = messageInput.value.trim();
+    try {
+        const result = await emailjs.sendForm(serviceID, templateID, form);
+        
+        console.log('SUCCESS!', result.status, result.text);
+        
+        statusMessage.textContent = '✅ Message sent successfully!';
+        statusMessage.className = 'mt-3 text-center success';
+        
+        form.reset(); // Clear the form fields after successful submission
 
-    // Basic Client-Side Validation
-    if (!name || !email || !message) {
-        // Use the browser's native constraint validation API (if supported)
-        // or a more visual feedback method instead of a basic alert, 
-        // but keeping the spirit of the original check.
-        alert("🚨 Please ensure all fields (Name, Email, Message) are filled out!");
-        return; // Stop execution if validation fails
+    } catch (error) {
+        console.error('FAILED...', error);
+        
+        statusMessage.textContent = '❌ Failed to send message. Please try again or use the links provided.';
+        statusMessage.className = 'mt-3 text-center error';
     }
+};
 
-    // --- FORM SUBMISSION (Simulated) ---
+/**
+ * 5. Theme Toggle: Switches between light and dark themes.
+ */
+const toggleTheme = () => {
+    // Get the current theme from the data-bs-theme attribute on the <html> element
+    const currentTheme = htmlElement.getAttribute('data-bs-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
-    // 1. Log data to console (useful for debugging)
-    console.log('--- Form Data Captured ---');
-    console.log(`Name: ${name}`);
-    console.log(`Email: ${email}`);
-    console.log(`Message: ${message}`);
-    console.log('--------------------------');
+    // Set the new theme
+    htmlElement.setAttribute('data-bs-theme', newTheme);
     
-    // 2. Display success message (replace this with an actual AJAX/Fetch call in production)
-    alert("✅ Success! Your message was sent successfully!");
+    // Update the button icon
+    const icon = themeToggle.querySelector('i');
+    if (newTheme === 'light') {
+        icon.className = 'fa fa-moon-o'; // Moon icon for dark mode prompt
+        themeToggle.setAttribute('aria-label', 'Toggle dark theme');
+    } else {
+        icon.className = 'fa fa-sun-o'; // Sun icon for light mode prompt
+        themeToggle.setAttribute('aria-label', 'Toggle light theme');
+    }
+    
+    // Optional: Save preference to localStorage
+    localStorage.setItem('theme', newTheme);
+};
 
-    // 3. Clear the form fields after successful 'submission'
-    form.reset(); 
+/**
+ * Applies saved theme preference on page load.
+ */
+const loadTheme = () => {
+    // Check localStorage for saved theme, default to 'dark'
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    htmlElement.setAttribute('data-bs-theme', savedTheme);
     
-    // OPTIONAL: In a real-world scenario, you would use the Fetch API here
-    /*
-    fetch(form.action, {
-        method: form.method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message })
-    })
-    .then(response => {
-        // Handle successful submission
-    })
-    .catch(error => {
-        // Handle errors
-    });
-    */
+    // Update icon on load
+    const icon = themeToggle.querySelector('i');
+    if (savedTheme === 'light') {
+        icon.className = 'fa fa-moon-o';
+    } else {
+        icon.className = 'fa fa-sun-o';
+    }
 };
 
 
-// 2. Event Listeners
-if (form) {
-    // Attach the submission handler directly to the form's 'submit' event
-    form.addEventListener("submit", handleFormSubmission);
-} else {
-    console.error("Contact form element not found. Check the ID 'contactForm'.");
-}
-
-// NOTE: We don't need a separate click listener for the 'sendButton' because 
-// listening to the 'submit' event on the form itself is more robust.
+// 2. Event Listeners (Run after DOM is fully loaded)
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Load saved theme immediately
+    loadTheme();
+    
+    if (form) {
+        form.addEventListener("submit", handleFormSubmission);
+    } else {
+        console.error("Contact form element not found. Check the ID 'contactForm'.");
+    }
+    
+    if (themeToggle) {
+        themeToggle.addEventListener("click", toggleTheme);
+    }
+});
