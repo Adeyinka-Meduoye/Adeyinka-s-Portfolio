@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark"> <head>
+<html lang="en"> <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
@@ -61,11 +61,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#contact-section">Contact</a>
               </li>
-              <li class="nav-item ms-lg-3">
-                <button id="theme-toggle" class="btn btn-sm btn-outline-secondary" aria-label="Toggle light/dark theme">
-                    <i class="fa fa-sun-o" aria-hidden="true"></i> </button>
-              </li>
-            </ul>
+              </ul>
           </div>
         </div>
       </nav>
@@ -95,10 +91,9 @@
       ---
 
       <section class="section about-section" id="about-section">
-        <div class="container">
-            <h2 class="section-title text-center mb-5">About Me</h2>
-            <div class="row about-content">
-                <div class="col-lg-8 about-description mb-4 mb-lg-0">
+        <div class="container text-center"> <h2 class="section-title text-center mb-5">About Me</h2>
+            <div class="row justify-content-center about-content">
+                <div class="col-lg-8 about-description mb-4 mb-lg-0 text-center">
                   <p class="lead">
                     Adeyinka is a **mobile app developer, front-end engineer, digital marketing specialist, and full-stack brand specialist** who supports a diverse portfolio of public and private sector projects in **mobile app development, web development, brand strategy and design, strategic communications, and human-centred design**.
                   </p>
@@ -121,8 +116,8 @@
                       </a>
                   </div>
                 </div>
-                <div class="col-lg-4 about-skills">
-                  <h3 class="about-skills-heading mb-3">Technical Skills</h3>
+                <div class="col-lg-4 about-skills text-start mx-auto mt-4 mt-lg-0">
+                  <h3 class="about-skills-heading mb-3 text-center">Technical Skills</h3>
                   <ul class="list-unstyled"> 
                     <li><span class="skill-tag">Product Strategy & Innovation</span></li>
                     <li><span class="skill-tag">AI-Driven Solution Design</span></li>
@@ -144,43 +139,38 @@
 
       ---
 
-      <section class="section service-section bg-light" id="service-section">
-        <div class="container">
-            <h2 class="section-title text-center mb-5">My Services</h2>
-            <div class="row service-div text-center">
+      <section class="section service-section" id="service-section">
+        <div class="container text-center"> <h2 class="section-title text-center mb-5">My Services</h2>
+            <div class="row service-div justify-content-center">
               
-              <article class="col-md-3 mb-4">
-                <div class="card service-card h-100">
-                    <img src="image/mobile.png" class="card-img-top service-img" alt="Mobile App Development icon" /> 
-                    <div class="card-body">
-                        <h3 class="card-title">Mobile App Development</h3>
+              <article class="col-md-5 col-lg-3 mb-4">
+                <div class="card service-card service-mobile h-100">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <h3 class="card-title text-overlay-white">Mobile App Development</h3>
                     </div>
                 </div>
               </article>
               
-              <article class="col-md-3 mb-4">
-                <div class="card service-card h-100">
-                    <img src="image/webdesign.png" class="card-img-top service-img" alt="Web Design and Development icon" />
-                    <div class="card-body">
-                        <h3 class="card-title">Web Design & Development</h3>
+              <article class="col-md-5 col-lg-3 mb-4">
+                <div class="card service-card service-web h-100">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <h3 class="card-title text-overlay-white">Web Design & Development</h3>
                     </div>
                 </div>
               </article>
               
-              <article class="col-md-3 mb-4">
-                <div class="card service-card h-100">
-                    <img src="image/contentcreation.png" class="card-img-top service-img" alt="Brand Strategy icon" /> 
-                    <div class="card-body">
-                        <h3 class="card-title">Brand Design & Strategy</h3>
+              <article class="col-md-5 col-lg-3 mb-4">
+                <div class="card service-card service-brand h-100">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <h3 class="card-title text-overlay-white">Brand Design & Strategy</h3>
                     </div>
                 </div>
               </article>
               
-              <article class="col-md-3 mb-4">
-                <div class="card service-card h-100">
-                    <img src="image/digitalmarketing.png" class="card-img-top service-img" alt="Digital Marketing icon" />
-                    <div class="card-body">
-                        <h3 class="card-title">Digital Marketing</h3>
+              <article class="col-md-5 col-lg-3 mb-4">
+                <div class="card service-card service-digital h-100">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <h3 class="card-title text-overlay-white">Digital Marketing</h3>
                     </div>
                 </div>
               </article>
@@ -191,9 +181,8 @@
       ---
 
       <section class="section portfolio-section" id="portfolio-section">
-        <div class="container">
-            <h2 class="section-title text-center mb-5">My Portfolio</h2>
-            <div class="row g-4 portfolio-grid">
+        <div class="container text-center"> <h2 class="section-title text-center mb-5">My Portfolio</h2>
+            <div class="row g-4 portfolio-grid justify-content-center">
               
               <article class="col-lg-4 col-md-6">
                 <div class="card project-card h-100">
@@ -297,14 +286,13 @@
 
       ---
 
-      <section class="section contact-section bg-light" id="contact-section">
-        <div class="container">
-          <h2 class="section-title text-center mb-5">Get In Touch</h2>
+      <section class="section contact-section" id="contact-section">
+        <div class="container text-center"> <h2 class="section-title text-center mb-5">Get In Touch</h2>
           <div class="row justify-content-center contact-content">
             
-            <div class="col-md-5 mb-4 mb-md-0">
+            <div class="col-md-5 mb-4 mb-md-0 text-center">
               <h3 class="h4 mb-3">Direct Contact</h3>
-              <ul class="list-unstyled contact-list">
+              <ul class="list-unstyled contact-list d-inline-block text-start">
                 <li><i class="fa fa-envelope-o me-2" aria-hidden="true"></i> <a href="mailto:yinkopet@gmail.com">yinkopet@gmail.com</a></li>
                 <li><i class="fa fa-phone me-2" aria-hidden="true"></i> <a href="tel:+2348039431704">+234 803 943 1704</a></li>
                 <li><i class="fa fa-whatsapp me-2" aria-hidden="true"></i> <a href="https://wa.me/+2348185546555" target="_blank" rel="noopener noreferrer">WhatsApp Me</a></li>
@@ -361,10 +349,6 @@
       crossorigin="anonymous"
     ></script>
     
-    <script>
-        // Simple script to set the current year in the footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
     <script src="script.js"></script>
   </body>
 </html>
