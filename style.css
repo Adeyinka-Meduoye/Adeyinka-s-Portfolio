@@ -177,8 +177,8 @@ hr {
 @keyframes change-text {
   0% { content: "Front-End Engineer"; }
   25% { content: "Mobile App Developer"; }
-  50% { content: "Digital Marketing Specialist"; }
-  75% { content: "Full Stack Brand Specialist"; }
+  50% { content: "AI Software Engineer"; }
+  75% { content: "Brand Strategist"; }
   100% { content: "Front-End Engineer"; }
 }
 
@@ -247,7 +247,7 @@ hr {
 .service-mobile::before { background-image: url('image/mobile_app.png'); }
 .service-web::before { background-image: url('image/webdesign.png'); }
 .service-brand::before { background-image: url('image/contentcreation.png'); }
-.service-digital::before { background-image: url('image/digitalmarketing.png'); }
+.service-digital::before { background-image: url('image/AI_software_engineer.png'); }
 
 .service-card:hover::before {
     opacity: 0.5;
@@ -334,4 +334,5 @@ hr {
     color: var(--color-primary) !important;
     font-weight: 500;
 }
+
 
