@@ -1,48 +1,34 @@
-/* ========================================================= */
-/* 1. Design Tokens (CSS Variables) and Theme Support */
-/* ========================================================= */
-
+/*
+|--------------------------------------------------------------------------
+| 1. CSS VARIABLES (Custom Properties)
+|--------------------------------------------------------------------------
+| Defines the core colors for easy, centralized theming.
+*/
 :root {
-  /* Default: Dark Theme Colors */
-  --color-dark-bg: #1e1e1e;          /* Deeper, professional dark */
-  --color-light-bg: #f8f9fa;         /* Bootstrap light gray */
-  --color-text-dark: #212529;        
-  --color-text-secondary-dark: #b0b0b0; /* Improved contrast for secondary text */
-  
-  --color-bg: var(--color-dark-bg);
-  --color-text: #bdbdbd;            /* Primary Text Color (Light Gray) */
-  --color-text-secondary: var(--color-text-secondary-dark);  
-  --color-heading: #ffffff;
-  
-  --color-accent-blue: #007bff;      /* Primary Accent (Blue) */
-  --color-accent-yellow: #ffc107;    /* Secondary Accent (Yellow/Gold) */
-  --color-shadow: rgba(0, 0, 0, 0.4); 
-  --color-border: rgba(255, 255, 255, 0.15); /* Slightly stronger border */
-  
-  /* Typography */
+  /* Colors */
+  --color-primary: #bdbdbd; /* Used for general text on dark background */
+  --color-secondary: #676565; /* Used for secondary/border/metadata text */
+  --color-accent: lightblue; /* Main highlight color */
+  --color-accent-hover: lightgoldenrodyellow; /* Button hover color 1 */
+  --color-bg-dark: #252525; /* Primary background color */
+  --color-text-light: #ffffff; /* Primary text color for headlines */
+  --color-btn-dark-bg: #252525; /* Button dark background */
+  --color-btn-hover-bg: darkblue; /* Button dark background on hover */
+
+  /* Spacing */
+  --spacing-section: 60px;
+  --spacing-card-margin: 15px;
+
+  /* Fonts */
   --font-family-main: "Poppins", sans-serif;
-  
-  /* Transitions */
-  --transition-fast: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --transition-theme: 0.5s ease;
-}
-
-/* Light Theme Overrides */
-html[data-theme="light"] {
-  --color-bg: var(--color-light-bg);
-  --color-text: var(--color-text-dark);
-  --color-text-secondary: #6c757d;
-  --color-heading: var(--color-text-dark);
-  --color-accent-blue: #0069d9;
-  --color-shadow: rgba(0, 0, 0, 0.1);
-  --color-border: rgba(0, 0, 0, 0.1);
 }
 
 
-/* ========================================================= */
-/* 2. Global Resets and Base Styles */
-/* ========================================================= */
-
+/*
+|--------------------------------------------------------------------------
+| 2. BASE STYLES & TYPOGRAPHY
+|--------------------------------------------------------------------------
+*/
 * {
   margin: 0;
   padding: 0;
@@ -50,449 +36,379 @@ html[data-theme="light"] {
 }
 
 html {
-  /* Ensure smooth scrolling behavior is applied via CSS/JS */
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: var(--color-bg-dark);
+  color: var(--color-primary);
   font-family: var(--font-family-main);
   line-height: 1.6;
-  transition: background-color var(--transition-theme), color var(--transition-theme); 
 }
 
+/* Links & Hover Effects */
 a {
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--color-primary); /* Default link color */
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--color-accent-blue);
+  color: var(--color-accent); /* Standard hover for general links */
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: var(--color-heading);
-    font-weight: 600;
-}
-
-section + section {
-    border-top: 1px solid var(--color-border);
+/* Headings */
+h1, h2, h3 {
+    color: var(--color-text-light);
 }
 
 .section-title {
-    font-weight: 300 !important;
-    color: var(--color-text-secondary) !important;
+    /* Styles for <h2> elements used as section titles */
+    font-size: 2.5rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    border-bottom: 2px solid var(--color-secondary);
+    display: inline-block;
 }
 
-/* Hidden elements for accessibility (used on figcaption) */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+/* Horizontal Rule */
+hr {
+    border-top: 1px solid var(--color-secondary);
+    opacity: 0.5; /* Makes it less harsh */
 }
 
-/* ========================================================= */
-/* 3. Reusable Components & Utilities */
-/* ========================================================= */
-
-/* Generic Card Hover Effect (for Portfolio and Services) */
-.hover-card {
-  transition: transform var(--transition-fast) 0s, box-shadow var(--transition-fast) 0s;
-  background-color: transparent !important;
-  border-radius: 8px;
-  will-change: transform, box-shadow; /* Performance boost */
-}
-
-.hover-card:hover {
-  transform: translateY(-5px); /* Lift effect */
-  box-shadow: 0 15px 30px var(--color-shadow);
-}
-
-/* Custom Primary Button Style */
-.btn-primary-custom {
-    border: 1px solid var(--color-accent-blue);
-    background-color: var(--color-accent-blue);
-    color: var(--color-heading);
-    padding: 10px 30px;
-    border-radius: 50px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.btn-primary-custom:hover {
-    background-color: transparent;
-    color: var(--color-accent-blue);
-}
-
-.btn-primary-custom:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.btn-outline-primary-custom {
-    border: 1px solid var(--color-border);
-    background-color: transparent;
-    color: var(--color-text-secondary);
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.btn-outline-primary-custom:hover {
-    border-color: var(--color-accent-blue);
-    color: var(--color-accent-blue);
-    background-color: transparent;
-}
-
-
-/* Social Icons */
-.social-icon {
-    font-size: 28px !important;
-    margin-right: 15px;
-    color: var(--color-text-secondary);
-    transition: color 0.3s ease;
-}
-
-.social-icon:hover {
-    color: var(--color-accent-blue);
-}
-
-
-/* ========================================================= */
-/* 4. Section Specific Styles */
-/* ========================================================= */
-
-/* Header & Navigation */
-.header-section {
+/*
+|--------------------------------------------------------------------------
+| 3. HEADER & NAVIGATION
+|--------------------------------------------------------------------------
+| Targeting the new .site-header class from HTML refactoring.
+*/
+.site-header {
   position: fixed;
   width: 100%;
-  z-index: 1030;
-  /* Subtle Transparency */
-  background-color: hsla(0, 0%, 14%, 0.98); 
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-border);
+  z-index: 1030; /* Higher than Bootstrap's navbar z-index */
+  /* Using rgba for background color to maintain consistency, but Bootstrap 
+     bg-body-tertiary might override this. */
+  background-color: rgba(37, 37, 37, 0.95); 
+  backdrop-filter: blur(8px); /* slightly reduced blur for modern look */
+  border-bottom: 1px solid rgba(103, 101, 101, 0.2);
 }
 
-html[data-theme="light"] .header-section {
-    background-color: hsla(0, 0%, 97%, 0.98);
-}
-
+/* Navbar Brand & Links */
 .navbar-brand {
-    color: var(--color-accent-blue) !important;
+    color: var(--color-text-light) !important;
     font-weight: 700;
-}
-.logo-icon {
-    color: var(--color-heading);
 }
 
 .nav-link {
-    color: var(--color-text) !important;
-    font-weight: 500;
-    margin: 0 5px;
+    color: var(--color-primary) !important;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
-.nav-link.active,
-.nav-link:hover {
-    color: var(--color-accent-blue) !important;
-    border-bottom: 2px solid var(--color-accent-blue);
-    padding-bottom: 5px;
+.nav-link:hover, .nav-link.active {
+    color: var(--color-accent) !important;
+    border-bottom: 2px solid var(--color-accent);
 }
 
-/* Theme Toggle Button Styling */
-#theme-toggle {
-    background: transparent;
-    border: 1px solid var(--color-border);
-    color: var(--color-text);
-    border-radius: 5px;
-    padding: 8px 10px;
-}
-
-#theme-toggle:hover {
-    color: var(--color-accent-blue);
-    border-color: var(--color-accent-blue);
+/*
+|--------------------------------------------------------------------------
+| 4. SECTION BASE STYLES
+|--------------------------------------------------------------------------
+| Generic styling for all main sections.
+*/
+.section {
+    padding: var(--spacing-section) 0;
+    min-height: 80vh; /* Ensures sections take up most viewport, good for scroll */
+    padding-top: calc(var(--spacing-section) + 80px); /* Account for fixed header */
 }
 
 
-/* Home Section */
+/*
+|--------------------------------------------------------------------------
+| 5. HOME SECTION (.home-section)
+|--------------------------------------------------------------------------
+*/
 .home-section {
-  padding-top: 150px; 
-  padding-bottom: 100px;
-  min-height: 100vh;
+  background-image: url(image/background.png);
+  background-size: cover; /* Changed to cover for better filling */
+  background-position: center;
+  /* Removed height: fit-content; and width: auto; as they are default or unnecessary here */
+  min-height: 100vh; /* Make it full screen height */
   display: flex;
-  align-items: center;
-  background-color: var(--color-bg); 
+  align-items: center; /* Center content vertically */
+  padding-top: 0;
+}
+
+/* Removed .open-home and .close-home styles as the HTML divs were removed */
+
+.home-passport img {
+  width: 100%;
+  max-width: 300px; /* Set a reasonable max size */
+  height: auto;
+  border-radius: 50%; /* Modern standard for round images */
+  border: 5px solid var(--color-accent);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease-in-out;
+}
+
+.home-passport:hover img { /* Target the image inside the passport container */
+  transform: scale(1.05);
 }
 
 .home-name {
-  text-shadow: 0 0 15px var(--color-shadow);
+  text-shadow: 2px 2px 5px var(--color-secondary); /* Refined text shadow */
 }
 
-.home-passport {
-    display: flex;
-    justify-content: center;
-}
-
-.passport-circle {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    border: 5px solid var(--color-accent-blue);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 30px var(--color-shadow);
-    /* Corrected for semantic HTML: figure requires margin reset */
-    margin: 0; 
-}
-
-.passport-circle img {
-  width: 100%;
-  height: auto;
-  transition: all var(--transition-fast) 0s;
-}
-
-.passport-circle:hover {
-  transform: scale(1.05);
-  border-color: var(--color-accent-yellow);
-}
-
-
-/* Typing Effect */
-.home-profile span {
-    display: inline-block;
-    color: var(--color-accent-blue);
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.typing-effect-text::before {
+/* Typewriter/Changing Text Effect */
+.home-profile span::before {
+  /* Using the parent class for better specificity */
   content: "Front-End Engineer";
-  color: var(--color-accent-blue);
+  color: var(--color-accent);
+  font-size: 1.5rem; /* Better relative font size */
+  font-weight: 500;
   animation-name: change-text;
-  animation-duration: 5s;
+  animation-duration: 8s; /* Slowed down duration */
   animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
 }
 
 @keyframes change-text {
-  0%, 100% { content: "Front-End Engineer"; }
+  0% { content: "Front-End Engineer"; }
   25% { content: "Digital Marketing Specialist"; }
   50% { content: "Full Stack Brand Specialist"; }
-  75% { content: "Mobile App Developer"; } 
+  75% { content: "Passionate Writer"; }
+  100% { content: "Front-End Engineer"; }
+}
+
+/* Home Button (Leveraging Bootstrap btn classes) */
+.home-button.btn-primary {
+    /* Custom styling for the primary button to override Bootstrap defaults */
+    background-color: var(--color-accent);
+    color: var(--color-bg-dark);
+    border: 2px solid var(--color-accent);
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+.home-button.btn-primary:hover {
+    background-color: var(--color-bg-dark);
+    color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
 }
 
 
-/* Section Padding */
-.about-section,
-.service-section,
-.portfolio-section,
-.contact-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
+/*
+|--------------------------------------------------------------------------
+| 6. ABOUT SECTION (.about-section)
+|--------------------------------------------------------------------------
+*/
+/* Removed .open-about and .close-about styles */
 
-/* About Section */
 .about-description p {
-    color: var(--color-text);
-    font-size: 1.05rem;
-    text-align: justify;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
 }
 
-.about-skills li {
-    padding: 5px 0;
-    color: var(--color-text);
-    font-weight: 400; 
+.about-description .social-links a {
+    margin-right: 15px;
+    color: var(--color-primary);
+    font-size: 2rem;
+}
+
+.about-description .social-links a:hover {
+    color: var(--color-accent);
+}
+
+.about-skills .list-unstyled li {
+    /* Styling skills as tags/badges */
+    display: inline-block;
+    background-color: rgba(103, 101, 101, 0.2);
+    color: var(--color-text-light);
+    padding: 5px 12px;
+    margin: 5px 8px 5px 0;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-left: 3px solid var(--color-accent);
 }
 
 
-/* Service Section */
-.service-item {
+/*
+|--------------------------------------------------------------------------
+| 7. SERVICES SECTION (.service-section)
+|--------------------------------------------------------------------------
+| Utilizing Bootstrap card classes.
+*/
+/* Removed .open-service and .close-service styles */
+
+.service-card {
+    background-color: var(--color-bg-dark);
+    border: 1px solid var(--color-secondary);
+    padding: 20px;
     text-align: center;
-    padding: 30px;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    background-color: rgba(103, 101, 101, 0.05); /* Slight tint for card background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Portfolio Section */
-.portfolio-item {
+.service-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.service-img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+}
+
+/*
+|--------------------------------------------------------------------------
+| 8. PORTFOLIO SECTION (.portfolio-section)
+|--------------------------------------------------------------------------
+| Utilizing Bootstrap card classes for projects.
+*/
+/* Removed .open-portfolio and .close-portfolio styles */
+
+.project-card {
+    background-color: var(--color-bg-dark);
+    border: 1px solid var(--color-secondary);
     text-align: center;
-    border: 1px solid var(--color-border) !important;
-    border-radius: 8px !important;
-    overflow: hidden;
-    background-color: rgba(103, 101, 101, 0.05) !important;
-    padding: 0 !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.portfolio-item img {
-    border-radius: 0;
-    margin-bottom: 0;
+.project-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-.portfolio-item .card-text {
-    color: var(--color-text);
-    min-height: 70px; /* Consistent height */
+.project-img {
+    height: 200px; /* Fixed height for image consistency */
+    object-fit: cover;
+    width: 100%;
 }
 
-
-/* Contact Section - Form Focus/Validation Refinements */
-.contact-first-div a {
-    color: var(--color-text);
-    display: block;
-    padding: 8px 0;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
+.card-text {
+    color: var(--color-primary);
+    font-size: 0.95rem;
 }
 
-.contact-first-div a:hover {
-    color: var(--color-accent-blue);
-}
-
-.contact-first-div i {
-    color: var(--color-accent-blue);
-    width: 25px;
-}
-
-.contact-second-div fieldset {
-    border: 1px solid var(--color-border);
-    padding: 30px;
-    border-radius: 8px;
-    background-color: rgba(103, 101, 101, 0.05);
-}
-
-.form-control {
-    background-color: var(--color-dark-bg);
-    border: 1px solid var(--color-border);
-    color: var(--color-heading);
+/* Main button for projects (Leveraging Bootstrap btn classes) */
+.main-button.btn-outline-primary {
+    color: var(--color-accent);
+    background-color: transparent;
+    border-color: var(--color-accent);
     transition: all 0.3s ease;
 }
 
-html[data-theme="light"] .form-control {
-    background-color: #ffffff;
-    color: var(--color-text-dark);
+.main-button.btn-outline-primary:hover {
+    color: var(--color-bg-dark);
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| 9. CONTACT SECTION (.contact-section)
+|--------------------------------------------------------------------------
+*/
+/* Removed .open-contact and .close-contact styles */
+
+.contact-list a {
+    color: var(--color-primary);
+    margin: 5px 0;
+    display: inline-block;
+}
+
+.contact-list a:hover {
+    color: var(--color-accent);
+}
+
+fieldset {
+    border-color: var(--color-secondary) !important;
+}
+
+legend {
+    color: var(--color-text-light);
+    font-size: 1.5rem;
+}
+
+.form-label {
+    color: var(--color-primary);
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-secondary);
+    color: var(--color-text-light);
 }
 
 .form-control:focus {
-    background-color: transparent;
-    border-color: var(--color-accent-blue);
-    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); 
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.25rem rgba(var(--color-accent), 0.25);
 }
 
-/* Footer Section */
-footer {
-  text-align: center;
-  color: var(--color-text-secondary);
-  font-size: 0.9rem;
+/* Form Submit Button (Leveraging Bootstrap btn classes) */
+.contact-section .btn-primary {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-bg-dark);
 }
 
-/* ========================================================= */
-/* 5. Custom Toast Notification System (Sleek UI) */
-/* ========================================================= */
-
-#toast-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 2000; /* Ensure it's above everything */
-}
-
-.custom-toast {
-    min-width: 250px;
-    max-width: 400px;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    color: #fff;
-    font-weight: 500;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transform: translateX(100%);
-    transition: opacity 0.3s ease-in, transform 0.3s ease-out;
-}
-
-.custom-toast.show {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.custom-toast.success {
-    background-color: #28a745; /* Green */
-}
-
-.custom-toast.error {
-    background-color: #dc3545; /* Red */
-}
-
-.custom-toast.warning {
-    background-color: #ffc107; /* Yellow */
-    color: #212529; /* Dark text for contrast */
-}
-
-.toast-icon {
-    margin-right: 10px;
+.contact-section .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
 }
 
 
-/* ========================================================= */
-/* 6. Media Queries for Responsiveness */
-/* ========================================================= */
-
-@media (max-width: 992px) {
-    .home-passport, 
-    .home-description {
-        margin-bottom: 40px;
-    }
-    .home-passport {
-        order: 1;
-    }
-    .home-description {
-        order: 2;
-        text-align: center !important;
-    }
-
-    .about-skills, .about-description {
-        padding-bottom: 20px;
-    }
-    
-    .skills-list li {
-        width: 100%;
-    }
-    
-    #toast-container {
-        right: 50%;
-        transform: translateX(50%);
-        width: 90%;
-        top: 80px; /* Below the fixed header */
-    }
-    .custom-toast {
-        min-width: 100%;
-    }
+/*
+|--------------------------------------------------------------------------
+| 10. FOOTER
+|--------------------------------------------------------------------------
+*/
+.site-footer {
+    /* Using generic class .site-footer from HTML refactoring */
+    background-color: var(--color-bg-dark);
+    color: var(--color-secondary);
+    padding: 20px 0;
+    font-size: 0.9rem;
 }
 
+.site-footer p {
+    margin: 0;
+    color: var(--color-secondary);
+}
+
+/*
+|--------------------------------------------------------------------------
+| 11. MEDIA QUERIES (Responsiveness)
+|--------------------------------------------------------------------------
+| Used to adjust styles for different screen sizes (e.g., tablet/mobile).
+*/
+
+/* Small devices (phones, 576px and below) */
 @media (max-width: 576px) {
-    .passport-circle {
-        width: 250px;
-        height: 250px;
+    .section {
+        padding: 40px 0;
+        padding-top: calc(40px + 70px);
+        min-height: auto; 
     }
-    .home-name {
-        font-size: 2.5rem;
+    
+    .home-passport img {
+        max-width: 200px;
     }
-    .home-profile span {
+
+    .home-profile span::before {
         font-size: 1.2rem;
     }
-    .btn-lg {
-        padding: 8px 20px;
+    
+    .about-skills .list-unstyled li {
+        font-size: 0.8rem;
+        margin: 3px 5px 3px 0;
     }
 }
