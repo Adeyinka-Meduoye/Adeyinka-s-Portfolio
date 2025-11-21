@@ -1,4 +1,4 @@
-/* Reset & Base Styles */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -12,51 +12,58 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   background-color: #252525;
-  color: #bdbdbd;
-  transition: background-color 0.4s, color 0.4s;
+  color: #676565;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Light Mode */
+/* Dark/Light Mode */
 body.light-mode {
   background-color: #f5f5f5;
-  color: #1c1c1c;
+  color: #222222;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #ffffff;
 }
 
 /* Header */
 .header-section {
   position: fixed;
-  top: 0;
   width: 100%;
-  z-index: 50;
+  color: #676565;
   background-color: #252525;
-  color: #bdbdbd;
+  z-index: 50;
   backdrop-filter: blur(10px);
-  transition: background-color 0.4s, color 0.4s;
 }
 
 body.light-mode .header-section {
-  background-color: #ffffffcc;
-  color: #1c1c1c;
+  background-color: #ffffff;
+  color: #222222;
 }
 
-.navbar-nav .nav-link {
-  color: #bdbdbd;
-  transition: color 0.3s;
+/* Navbar */
+.navbar .nav-link {
+  color: #676565 !important;
 }
 
-.navbar-nav .nav-link:hover {
-  color: #ffffff;
+.navbar .nav-link:hover {
+  color: #fff !important;
 }
 
-body.light-mode .navbar-nav .nav-link {
-  color: #1c1c1c;
+body.light-mode .navbar .nav-link {
+  color: #222222 !important;
 }
 
-body.light-mode .navbar-nav .nav-link:hover {
-  color: #007bff;
+body.light-mode .navbar .nav-link:hover {
+  color: #000 !important;
 }
 
-/* Section Headings (<Home>, <About>, etc.) */
+/* Section Headers (<Home>, <About> etc.) */
 .open-home, .close-home,
 .open-about, .close-about,
 .open-service, .close-service,
@@ -64,51 +71,40 @@ body.light-mode .navbar-nav .nav-link:hover {
 .open-contact, .close-contact {
   text-align: center;
   font-size: 60px;
+  margin-bottom: 30px;
   font-weight: bold;
-  color: #676565;
-  margin: 20px 0;
-  transition: color 0.3s;
+  color: #bdbdbd;
 }
 
-body.light-mode .open-home, 
-body.light-mode .close-home,
-body.light-mode .open-about, 
-body.light-mode .close-about,
-body.light-mode .open-service, 
-body.light-mode .close-service,
-body.light-mode .open-portfolio, 
-body.light-mode .close-portfolio,
-body.light-mode .open-contact, 
-body.light-mode .close-contact {
-  color: #1c1c1c;
+body.light-mode .open-home, body.light-mode .close-home,
+body.light-mode .open-about, body.light-mode .close-about,
+body.light-mode .open-service, body.light-mode .close-service,
+body.light-mode .open-portfolio, body.light-mode .close-portfolio,
+body.light-mode .open-contact, body.light-mode .close-contact {
+  color: #555555;
 }
 
 /* Home Section */
 .home-section {
   background-image: url(image/background.png);
   background-size: cover;
+  width: 100%;
   padding-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
 .home-div {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 40px;
-  margin: 50px 0;
+  text-align: center;
+  padding: 50px 10px;
 }
 
 .home-passport img {
   border-radius: 50%;
-  width: 300px;
-  height: 300px;
-  transition: transform 0.3s;
+  max-width: 250px;
+  transition: transform 0.25s ease;
 }
 
 .home-passport:hover {
@@ -116,42 +112,42 @@ body.light-mode .close-contact {
 }
 
 .home-description {
-  max-width: 450px;
-  color: #ffffff;
+  margin: 20px;
   text-align: center;
-  transition: color 0.3s;
+  color: #ffffff;
 }
 
 body.light-mode .home-description {
-  color: #1c1c1c;
+  color: #222222;
 }
 
 .home-name {
-  font-size: 2.5rem;
-  text-shadow: 2px 2px 8px #676565;
+  text-shadow: 5px 5px 10px #676565;
+  font-size: 36px;
 }
 
-body.light-mode .home-name {
-  text-shadow: none;
-}
-
-.home-profile span {
+.home-profile span::before {
+  content: "Front-End Engineer";
   color: lightblue;
-  font-size: 1.2rem;
-  display: inline-block;
-  margin-top: 10px;
+  font-size: 20px;
+  animation: change-text 5s infinite;
+}
+
+@keyframes change-text {
+  25% { content: "Digital Marketing Specialist"; }
+  50% { content: "Full Stack Brand Specialist"; }
+  75% { content: "Mobile App Developer"; }
 }
 
 .home-button {
-  margin-top: 20px;
-  font-size: 1rem;
-  color: lightgoldenrodyellow;
-  background-color: #252525;
+  margin-top: 15px;
   padding: 10px 20px;
-  border: none;
   border-radius: 5px;
+  border: none;
   cursor: pointer;
-  transition: 0.4s;
+  background-color: #252525;
+  color: lightgoldenrodyellow;
+  transition: all 0.3s;
 }
 
 .home-button:hover {
@@ -159,13 +155,12 @@ body.light-mode .home-name {
 }
 
 body.light-mode .home-button {
-  background-color: #eaeaea;
-  color: #1c1c1c;
+  background-color: #f5f5f5;
+  color: #222222;
 }
 
 body.light-mode .home-button:hover {
-  background-color: #007bff;
-  color: #ffffff;
+  color: #007BFF;
 }
 
 /* About Section */
@@ -174,25 +169,21 @@ body.light-mode .home-button:hover {
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  gap: 40px;
-  padding: 50px 0;
-  text-align: left;
+  padding: 50px 10px;
+  gap: 30px;
 }
 
 .about-description, .about-skills {
-  max-width: 400px;
-  color: #bdbdbd;
-  transition: color 0.3s;
-}
-
-body.light-mode .about-description, 
-body.light-mode .about-skills {
-  color: #1c1c1c;
+  max-width: 450px;
 }
 
 .about-skills ul {
-  list-style: disc;
-  padding-left: 20px;
+  list-style: none;
+}
+
+.about-skills ul li::before {
+  content: "• ";
+  color: lightblue;
 }
 
 /* Services Section */
@@ -200,75 +191,55 @@ body.light-mode .about-skills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
-  padding: 50px 0;
+  align-items: center;
+  gap: 30px;
+  padding: 50px 10px;
+}
+
+.service-div div {
   text-align: center;
+  transition: transform 0.25s ease;
 }
 
-.service-webdesign, .service-digital, .service-content, .service-mobile, .service-brand {
-  max-width: 250px;
-  transition: transform 0.3s, color 0.3s;
-  color: #bdbdbd;
-}
-
-.service-webdesign:hover, .service-digital:hover, .service-content:hover, .service-mobile:hover, .service-brand:hover {
+.service-div div:hover {
   transform: scale(1.05);
-}
-
-body.light-mode .service-webdesign, 
-body.light-mode .service-digital, 
-body.light-mode .service-content, 
-body.light-mode .service-mobile, 
-body.light-mode .service-brand {
-  color: #1c1c1c;
 }
 
 /* Portfolio Section */
-.portfolio-first-div, .portfolio-second-div {
+.portfolio-first-div,
+.portfolio-second-div {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
-  padding-bottom: 50px;
+  gap: 30px;
+  padding: 50px 10px;
 }
 
-.portfolio-first-div div, .portfolio-second-div div {
+.portfolio-first-div div,
+.portfolio-second-div div {
   max-width: 400px;
-  color: #bdbdbd;
-  transition: transform 0.3s, color 0.3s;
+  text-align: center;
+  transition: transform 0.25s ease;
 }
 
-.portfolio-first-div div:hover, .portfolio-second-div div:hover {
+.portfolio-first-div div:hover,
+.portfolio-second-div div:hover {
   transform: scale(1.05);
 }
 
-body.light-mode .portfolio-first-div div, body.light-mode .portfolio-second-div div {
-  color: #1c1c1c;
-}
-
 .main-button {
-  font-size: 1rem;
   padding: 10px 20px;
+  margin-top: 10px;
   border: 1px solid #676565;
   background-color: #252525;
   color: lightblue;
   cursor: pointer;
-  transition: 0.4s;
+  transition: 0.3s;
 }
 
 .main-button:hover {
-  color: lightgoldenrodyellow;
   background-color: darkblue;
-}
-
-body.light-mode .main-button {
-  background-color: #eaeaea;
-  color: #1c1c1c;
-}
-
-body.light-mode .main-button:hover {
-  background-color: #007bff;
-  color: #ffffff;
+  color: lightgoldenrodyellow;
 }
 
 /* Contact Section */
@@ -276,69 +247,37 @@ body.light-mode .main-button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
-  padding: 50px 0;
+  gap: 30px;
+  padding: 50px 10px;
 }
 
 .contact-first-div, .contact-second-div {
   max-width: 400px;
-  text-align: center;
-  color: #bdbdbd;
-  transition: color 0.3s;
 }
 
-body.light-mode .contact-first-div, body.light-mode .contact-second-div {
-  color: #1c1c1c;
+.contact-second-div form input,
+.contact-second-div form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
 }
 
-button {
-  font-size: 1rem;
-  padding: 10px 20px;
+button#send {
+  width: 100%;
   border-radius: 5px;
-  border: none;
-  background-color: #252525;
-  color: lightgoldenrodyellow;
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-button:hover {
-  color: lightblue;
-}
-
-body.light-mode button {
-  background-color: #eaeaea;
-  color: #1c1c1c;
-}
-
-body.light-mode button:hover {
-  color: #007bff;
 }
 
 /* Footer */
 footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  padding: 20px 0;
+  padding: 20px;
   color: #bdbdbd;
 }
 
-body.light-mode footer {
-  color: #1c1c1c;
-}
-
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
+/* Responsive Home Section: Ensure image before text on mobile */
+@media (max-width: 768px) {
   .home-div {
     flex-direction: column;
-  }
-
-  .home-passport {
-    order: -1;
-    margin-bottom: 20px;
   }
 
   .home-description {
