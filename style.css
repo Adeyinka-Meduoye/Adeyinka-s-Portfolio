@@ -175,11 +175,11 @@ hr {
 }
 
 @keyframes change-text {
-  0% { content: "a Front-End Engineer"; }
-  25% { content: "a Mobile App Developer"; }
-  50% { content: "an AI Software Engineer"; }
-  75% { content: "a Brand Strategist"; }
-  100% { content: "a Front-End Engineer"; }
+  0% { content: "I am a Front-End Engineer"; }
+  25% { content: "I am a Mobile App Developer"; }
+  50% { content: "I am an AI Software Engineer"; }
+  75% { content: "I am a Brand Strategist"; }
+  100% { content: "I am a Front-End Engineer"; }
 }
 
 .home-button.btn-primary {
@@ -334,6 +334,7 @@ hr {
     color: var(--color-primary) !important;
     font-weight: 500;
 }
+
 
 
 
