@@ -176,9 +176,10 @@ hr {
 
 @keyframes change-text {
   0% { content: "I am a Front-End Engineer"; }
-  25% { content: "I am a Mobile App Developer"; }
-  50% { content: "I am an AI Software Engineer"; }
-  75% { content: "I am a Brand Strategist"; }
+  20% { content: "I am a Mobile App Developer"; }
+  40% { content: "I am an AI Agent Developer"; }
+  60% { content: "I am a Brand Strategist"; }
+  80% { content: "I am a Digital Marketing Specialist"; }
   100% { content: "I am a Front-End Engineer"; }
 }
 
@@ -334,6 +335,7 @@ hr {
     color: var(--color-primary) !important;
     font-weight: 500;
 }
+
 
 
 
