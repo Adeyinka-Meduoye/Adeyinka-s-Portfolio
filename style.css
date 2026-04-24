@@ -165,7 +165,7 @@ hr {
 
 /* Keyframe Activation Fix: Targeting span directly inside .home-profile */
 .home-profile span::before {
-  content: "Front-End Engineer"; /* Default content */
+  content: "I build AI Agents"; /* Default content */
   color: var(--color-accent);
   font-size: 1.5rem;
   font-weight: 500;
