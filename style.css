@@ -165,7 +165,7 @@ hr {
 
 /* Keyframe Activation Fix: Targeting span directly inside .home-profile */
 .home-profile span::before {
-  content: "I build AI Agents"; /* Default content */
+  content: "I Build AI Agents"; /* Default content */
   color: var(--color-accent);
   font-size: 1.5rem;
   font-weight: 500;
@@ -175,11 +175,11 @@ hr {
 }
 
 @keyframes change-text {
-  0% { content: "I build AI Agents"; }
-  20% { content: "I build mobile apps"; }
-  40% { content: "I build web products"; }
-  60% { content: "I work across product strategy"; }
-  80% { content: "I work across engineering and digital growth"; }
+  0% { content: "I Build AI Agents"; }
+  20% { content: "I Build Mobile Apps"; }
+  40% { content: "I Build Web Products"; }
+  60% { content: "I Work Across Product Strategy"; }
+  80% { content: "And Digital Growth"; }
 }
 
 .home-button.btn-primary {
