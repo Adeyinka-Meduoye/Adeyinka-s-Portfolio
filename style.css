@@ -175,12 +175,12 @@ hr {
 }
 
 @keyframes change-text {
-  0% { content: "I am a Front-End Engineer"; }
-  20% { content: "I am a Mobile App Developer"; }
-  40% { content: "I am an AI Agent Developer"; }
-  60% { content: "I am a Brand Strategist"; }
-  80% { content: "I am a Digital Marketing Specialist"; }
-  100% { content: "I am a Front-End Engineer"; }
+  0% { content: "I build AI Agents"; }
+  20% { content: "I build mobile apps"; }
+  40% { content: "I build web products"; }
+  60% { content: "I work across product strategy"; }
+  80% { content: "I work across engineering"; }
+  100% { content: "I work across digital growth"; }
 }
 
 .home-button.btn-primary {
